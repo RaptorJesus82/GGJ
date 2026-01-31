@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d3am4wu25upeb"]
+
+[ext_resource type="Script" path="res://script_pnj.gd" id="1_eadai"]
+[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_5qfbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_725ke"]
+size = Vector2(118, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fjbmv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5qfbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBodyPNJ" type="CharacterBody2D" unique_id=279647907]
+script = ExtResource("1_eadai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=197659206]
+position = Vector2(49, 49)
+shape = SubResource("RectangleShape2D_725ke")
+
+[node name="PNJ" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1470125371]
+position = Vector2(4, 3)
+sprite_frames = SubResource("SpriteFrames_fjbmv")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1200615059]
+
+[node name="Sprite2D" type="Sprite2D" parent="RayCast2D" unique_id=485018173]
+position = Vector2(261, -22.999992)
+scale = Vector2(0.12499999, 0.1328125)
+texture = ExtResource("2_5qfbx")
