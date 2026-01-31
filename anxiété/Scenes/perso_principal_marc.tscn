@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bqyietb38t7hk" path="res://Scripts/perso_principal_marc.gd" id="1_27yu7"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_s07hf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48ufq"]
-radius = 40.09375
-height = 80.1875
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmkwl"]
 radius = 47.499992
 height = 225.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48ufq"]
+radius = 40.09375
+height = 80.1875
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvl38"]
 radius = 16.75
@@ -18,9 +18,30 @@ height = 164.5
 [node name="Node2D" type="Node2D" unique_id=861734734]
 position = Vector2(29, -34)
 
-[node name="Tete" type="CharacterBody2D" parent="." unique_id=933940909]
-position = Vector2(17, 69)
+[node name="PinJoint2D2" type="PinJoint2D" parent="." unique_id=755874879]
+position = Vector2(313, 115)
+node_a = NodePath("../Tete")
+node_b = NodePath("../Corps")
+disable_collision = false
+
+[node name="Corps" type="RigidBody2D" parent="." unique_id=1161705992]
+position = Vector2(170, 15)
+mass = 6.131
 script = ExtResource("1_27yu7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Corps" unique_id=101103376]
+position = Vector2(28, 100)
+scale = Vector2(1.7578125, 0.78125)
+texture = ExtResource("2_s07hf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corps" unique_id=1889808054]
+position = Vector2(28.5, 100.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wmkwl")
+
+[node name="Tete" type="RigidBody2D" parent="." unique_id=827331561]
+position = Vector2(17, 69)
+mass = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="Tete" unique_id=1394237671]
 position = Vector2(341, 46)
@@ -31,42 +52,11 @@ texture = ExtResource("2_s07hf")
 position = Vector2(342.90625, 46.90625)
 shape = SubResource("CapsuleShape2D_48ufq")
 
-[node name="Corps" type="RigidBody2D" parent="Tete" unique_id=869988770]
-position = Vector2(153, -54)
-mass = 8.787
-gravity_scale = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Tete/Corps" unique_id=101103376]
-position = Vector2(28, 100)
-scale = Vector2(1.7578125, 0.78125)
-texture = ExtResource("2_s07hf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tete/Corps" unique_id=1889808054]
-position = Vector2(28.5, 100.5)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_wmkwl")
-
-[node name="Queue" type="RigidBody2D" parent="Tete" unique_id=1589309642]
-position = Vector2(-184, 150)
-mass = 2.321
-gravity_scale = 0.0
-inertia = 12.75
-
-[node name="Sprite2D" type="Sprite2D" parent="Tete/Queue" unique_id=1540117725]
-position = Vector2(166, -104)
-scale = Vector2(1.28125, 0.2421875)
-texture = ExtResource("2_s07hf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tete/Queue" unique_id=805964557]
-position = Vector2(165.25, -104.375)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_uvl38")
-
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="." unique_id=1021524060]
 position = Vector2(93, 91)
 rotation = 1.3194689
-node_a = NodePath("../Tete/Corps")
-node_b = NodePath("../Tete/Queue")
+node_a = NodePath("../Corps")
+node_b = NodePath("../Queue")
 bias = 0.9
 disable_collision = false
 length = 44.0
@@ -74,8 +64,8 @@ length = 44.0
 [node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="." unique_id=1646415240]
 position = Vector2(93, 138)
 rotation = 1.8221238
-node_a = NodePath("../Tete/Corps")
-node_b = NodePath("../Tete/Queue")
+node_a = NodePath("../Corps")
+node_b = NodePath("../Queue")
 bias = 0.9
 disable_collision = false
 length = 44.0
@@ -84,7 +74,7 @@ length = 44.0
 position = Vector2(319, 136)
 rotation = 1.5707964
 node_a = NodePath("../Tete")
-node_b = NodePath("../Tete/Corps")
+node_b = NodePath("../Corps")
 bias = 0.9
 disable_collision = false
 length = 20.0
@@ -95,7 +85,7 @@ damping = 16.0
 position = Vector2(320, 91)
 rotation = 1.5707964
 node_a = NodePath("../Tete")
-node_b = NodePath("../Tete/Corps")
+node_b = NodePath("../Corps")
 bias = 0.9
 disable_collision = false
 length = 20.0
@@ -104,6 +94,20 @@ damping = 16.0
 
 [node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=479959012]
 position = Vector2(83, 116)
-node_a = NodePath("../Tete/Corps")
-node_b = NodePath("../Tete/Queue")
+node_a = NodePath("../Corps")
+node_b = NodePath("../Queue")
 disable_collision = false
+
+[node name="Queue" type="RigidBody2D" parent="." unique_id=1241234642]
+position = Vector2(-167, 219)
+mass = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Queue" unique_id=1540117725]
+position = Vector2(166, -104)
+scale = Vector2(1.28125, 0.2421875)
+texture = ExtResource("2_s07hf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Queue" unique_id=805964557]
+position = Vector2(165.25, -104.375)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_uvl38")
