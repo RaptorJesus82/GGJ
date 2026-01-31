@@ -24,7 +24,6 @@ func _physics_process(delta):
 @export var goal : Node2D
 
 func ray_cast():
-	print("ray casted !")
 	if goal == null:
 		return false
 	raycast.target_position = raycast.to_local(goal.global_position)
