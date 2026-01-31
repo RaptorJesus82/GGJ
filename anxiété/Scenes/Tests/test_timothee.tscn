@@ -1,16 +1,27 @@
 [gd_scene format=3 uid="uid://dtjaeki172btg"]
 
-[ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="3_trra4"]
+[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_7bnx2"]
 [ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="4_7bnx2"]
+[ext_resource type="PackedScene" uid="uid://bcjdxy16asp58" path="res://Scenes/perso_principal_marc.tscn" id="4_20vjc"]
+[ext_resource type="Script" uid="uid://xelbb6hv0icd" path="res://Scripts/mutation.gd" id="4_trra4"]
 
 [sub_resource type="Curve2D" id="Curve2D_cvq5f"]
 _data = {
-"points": PackedVector2Array(-115.3719, -44.958675, 115.3719, 44.958675, 0, 0, 41.0648, -47.916, -41.0648, 47.916, 200, 200, -206.64124, 166.00232, 206.64124, -166.00232, -200, 121, -319.93594, 22.254322, 319.93594, -22.254322, -232, -169, -108.0072, -31.944, 108.0072, 31.944, 0, 0)
+"points": PackedVector2Array(-115.3719, -44.958675, 115.3719, 44.958675, 27, 208, 41.0648, -47.916, -41.0648, 47.916, 200, 200, -206.64124, 166.00232, 206.64124, -166.00232, 547, 80, -319.93594, 22.254322, 319.93594, -22.254322, -395, 296, -108.0072, -31.944, 108.0072, 31.944, 25, 207)
 }
 point_count = 5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_20vjc"]
-size = Vector2(51, 51)
+[sub_resource type="Curve2D" id="Curve2D_8tfmq"]
+_data = {
+"points": PackedVector2Array(214.18181, -1.9073486e-06, -214.18181, 1.9073486e-06, 0, 0, -89.158966, 81.11342, 89.158966, -81.11342, -354, -293, -182.96857, -278.15213, 182.96857, 278.15213, 400, -200, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bnx2"]
+size = Vector2(592, 58)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7bnx2"]
+distance = -358.0
 
 [node name="TestTimothee" type="Node2D" unique_id=1118742825]
 
@@ -20,43 +31,83 @@ size = Vector2(51, 51)
 curve = SubResource("Curve2D_cvq5f")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1745404936]
-rotation = 0.37158242
+position = Vector2(27, 208)
+rotation = 0.37158248
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2035732145]
-position = Vector2(-19, 33)
+[node name="Path2D2" type="Path2D" parent="." unique_id=168818707]
+curve = SubResource("Curve2D_8tfmq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=842322848]
-position = Vector2(15.5, -15.5)
-shape = SubResource("RectangleShape2D_20vjc")
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=454055444]
+rotation = 3.1415927
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1812210794]
-position = Vector2(13.999999, -14.5)
-scale = Vector2(0.192, 0.19600002)
-texture = ExtResource("3_trra4")
-
-[node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("trajet", "goal") instance=ExtResource("4_7bnx2")]
+[node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("trajet") instance=ExtResource("4_7bnx2")]
 position = Vector2(349, 69)
 slide_on_ceiling = false
 SPEED = 500.0
 trajet = NodePath("../Path2D/PathFollow2D")
-goal = NodePath("../CharacterBody2D")
 
-[node name="CharacterBodyPNJ2" parent="." unique_id=701943481 node_paths=PackedStringArray("trajet", "goal") instance=ExtResource("4_7bnx2")]
-position = Vector2(349, 69)
+[node name="CharacterBodyPNJ2" parent="." unique_id=701943481 node_paths=PackedStringArray("trajet") instance=ExtResource("4_7bnx2")]
+position = Vector2(-233, -232)
 slide_on_ceiling = false
-trajet = NodePath("../Path2D/PathFollow2D")
-goal = NodePath("../CharacterBody2D")
+trajet = NodePath("../Path2D2/PathFollow2D")
 
-[node name="CharacterBodyPNJ3" parent="." unique_id=739675510 node_paths=PackedStringArray("trajet", "goal") instance=ExtResource("4_7bnx2")]
-position = Vector2(349, 69)
-slide_on_ceiling = false
-SPEED = 100.0
-trajet = NodePath("../Path2D/PathFollow2D")
-goal = NodePath("../CharacterBody2D")
+[node name="Mur" type="Node2D" parent="." unique_id=21635411]
 
-[node name="CharacterBodyPNJ4" parent="." unique_id=1970620636 node_paths=PackedStringArray("trajet", "goal") instance=ExtResource("4_7bnx2")]
-position = Vector2(349, 69)
-slide_on_ceiling = false
-SPEED = 50.0
-trajet = NodePath("../Path2D/PathFollow2D")
-goal = NodePath("../CharacterBody2D")
+[node name="StaticBody2D" type="StaticBody2D" parent="Mur" unique_id=1479821052]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mur/StaticBody2D" unique_id=98330284]
+position = Vector2(-444, -76)
+shape = SubResource("RectangleShape2D_7bnx2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mur" unique_id=518980200]
+position = Vector2(-445, -76)
+scale = Vector2(4.7109375, 0.453125)
+texture = ExtResource("2_7bnx2")
+
+[node name="Mur2" type="Node2D" parent="." unique_id=1360291334]
+position = Vector2(466, 372)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mur2" unique_id=895304704]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mur2/StaticBody2D" unique_id=35164404]
+position = Vector2(-444, -76)
+shape = SubResource("RectangleShape2D_7bnx2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mur2" unique_id=1453000822]
+position = Vector2(-445, -76)
+scale = Vector2(4.7109375, 0.453125)
+texture = ExtResource("2_7bnx2")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1474495901]
+script = ExtResource("4_trra4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1730235674]
+position = Vector2(3, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1565552327]
+shape = SubResource("WorldBoundaryShape2D_7bnx2")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=234295995]
+position = Vector2(274, -3)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1061819268]
+shape = SubResource("WorldBoundaryShape2D_7bnx2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=33925101]
+position = Vector2(-685.00006, -214)
+rotation = 1.5463617
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1516227755]
+shape = SubResource("WorldBoundaryShape2D_7bnx2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1692689507]
+position = Vector2(-43, -71)
+rotation = 3.0927234
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1056808717]
+shape = SubResource("WorldBoundaryShape2D_7bnx2")
+
+[node name="Node2D2" parent="." unique_id=861734734 instance=ExtResource("4_20vjc")]
+position = Vector2(75, -528)
+rotation = 1.4538592

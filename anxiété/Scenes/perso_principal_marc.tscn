@@ -1,22 +1,37 @@
 [gd_scene format=3 uid="uid://bcjdxy16asp58"]
 
 [ext_resource type="Script" uid="uid://bqyietb38t7hk" path="res://Scripts/perso_principal_marc.gd" id="1_27yu7"]
+[ext_resource type="Script" uid="uid://h683u7m3x66d" path="res://Scripts/muting_cat.gd" id="1_jjfqu"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_s07hf"]
+[ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="3_s07hf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmkwl"]
 radius = 47.499992
 height = 225.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jjfqu"]
+radius = 28.071337
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s07hf"]
+radius = 28.071337
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48ufq"]
 radius = 40.09375
 height = 80.1875
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8p25h"]
+radius = 28.071337
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvl38"]
 radius = 16.75
 height = 164.5
 
-[node name="Node2D" type="Node2D" unique_id=861734734]
-position = Vector2(29, -34)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfajj"]
+radius = 28.071337
+
+[node name="Node2D" type="Node2D" unique_id=861734734 node_paths=PackedStringArray("mutations")]
+script = ExtResource("1_jjfqu")
+mutations = [NodePath("Corps/CollisionShape2D/mutationEpauleGauche"), NodePath("Corps/CollisionShape2D/mutationEpauleDroite"), NodePath("Tete/CollisionShape2D2/mutationTete"), NodePath("Queue/CollisionShape2D/mutationQueue")]
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="." unique_id=755874879]
 position = Vector2(313, 115)
@@ -39,6 +54,34 @@ position = Vector2(28.5, 100.5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_wmkwl")
 
+[node name="mutationEpauleGauche" type="StaticBody2D" parent="Corps/CollisionShape2D" unique_id=301734470]
+position = Vector2(-46.500008, -87.5)
+rotation = -1.5707964
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corps/CollisionShape2D/mutationEpauleGauche" unique_id=508781492]
+shape = SubResource("CircleShape2D_jjfqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Corps/CollisionShape2D/mutationEpauleGauche" unique_id=2074830328]
+position = Vector2(0.5, -0.50000024)
+scale = Vector2(0.107999995, 0.107999995)
+texture = ExtResource("3_s07hf")
+
+[node name="mutationEpauleDroite" type="StaticBody2D" parent="Corps/CollisionShape2D" unique_id=1223122251]
+position = Vector2(50.499992, -86.5)
+rotation = -1.5707964
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corps/CollisionShape2D/mutationEpauleDroite" unique_id=363755501]
+shape = SubResource("CircleShape2D_s07hf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Corps/CollisionShape2D/mutationEpauleDroite" unique_id=2143674172]
+position = Vector2(0.5, -0.50000024)
+scale = Vector2(0.107999995, 0.107999995)
+texture = ExtResource("3_s07hf")
+
 [node name="Tete" type="RigidBody2D" parent="." unique_id=827331561]
 position = Vector2(17, 69)
 mass = 0.5
@@ -51,6 +94,19 @@ texture = ExtResource("2_s07hf")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tete" unique_id=163629285]
 position = Vector2(342.90625, 46.90625)
 shape = SubResource("CapsuleShape2D_48ufq")
+
+[node name="mutationTete" type="StaticBody2D" parent="Tete/CollisionShape2D2" unique_id=1321776023]
+position = Vector2(55.09375, -0.90625)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tete/CollisionShape2D2/mutationTete" unique_id=934860359]
+shape = SubResource("CircleShape2D_8p25h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tete/CollisionShape2D2/mutationTete" unique_id=1955483943]
+position = Vector2(0.5, -0.50000024)
+scale = Vector2(0.107999995, 0.107999995)
+texture = ExtResource("3_s07hf")
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="." unique_id=1021524060]
 position = Vector2(93, 91)
@@ -111,3 +167,17 @@ texture = ExtResource("2_s07hf")
 position = Vector2(165.25, -104.375)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_uvl38")
+
+[node name="mutationQueue" type="StaticBody2D" parent="Queue/CollisionShape2D" unique_id=403441435]
+position = Vector2(0.375, 85.25)
+rotation = -1.5707964
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Queue/CollisionShape2D/mutationQueue" unique_id=556854647]
+shape = SubResource("CircleShape2D_vfajj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Queue/CollisionShape2D/mutationQueue" unique_id=1314144093]
+position = Vector2(-1.0000038, -0.9999995)
+scale = Vector2(0.22399999, 0.20799994)
+texture = ExtResource("3_s07hf")
