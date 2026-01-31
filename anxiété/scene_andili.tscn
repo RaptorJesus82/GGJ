@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://n0hc645qsjhx"]
+
+[ext_resource type="PackedScene" uid="uid://biygd4a741gru" path="res://meuble.tscn" id="1_gyss8"]
+[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="1_r5nrv"]
+
+[node name="Scene Andili" type="Node2D" unique_id=678962933]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1883947338]
+position = Vector2(326, 174)
+scale = Vector2(5.046875, 2.71875)
+texture = ExtResource("1_r5nrv")
+
+[node name="Meuble" parent="." unique_id=136959735 instance=ExtResource("1_gyss8")]
+position = Vector2(175, 169)
+
+[node name="Meuble2" parent="." unique_id=1748480427 instance=ExtResource("1_gyss8")]
+position = Vector2(458, 122)
