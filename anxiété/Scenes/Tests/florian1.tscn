@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://clpmwlquck0jw"]
 
 [ext_resource type="PackedScene" uid="uid://dpbwdg30gtjx4" path="res://Scenes/Tests/python.tscn" id="2_fjbmv"]
-[ext_resource type="Script" uid="uid://8mgya45lidia" path="res://Scenes/character_body_2d.gd" id="3_ubpg7"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="4_0p48j"]
 [ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="4_meeow"]
+[ext_resource type="Script" uid="uid://bqyietb38t7hk" path="res://Scripts/perso_principal_marc.gd" id="5_6rxsm"]
 [ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="5_d02u7"]
 [ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="6_6rxsm"]
 
@@ -13,7 +13,17 @@ _data = {
 }
 point_count = 8
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d02u7"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qyvfo"]
+radius = 40.09375
+height = 80.1875
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4e3kh"]
+radius = 47.499992
+height = 225.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txcwn"]
+radius = 16.75
+height = 164.5
 
 [node name="Florian" type="Node2D" unique_id=1382921374]
 
@@ -23,7 +33,7 @@ point_count = 8
 position = Vector2(-512, 238)
 slide_on_ceiling = false
 trajet = NodePath("../Path2D/PathFollow2D")
-goal = NodePath("../CharacterBody2D")
+goal = NodePath("../Tete")
 
 [node name="python" parent="." unique_id=1238169934 instance=ExtResource("2_fjbmv")]
 position = Vector2(-438.00006, -121)
@@ -60,18 +70,6 @@ curve = SubResource("Curve2D_7oek5")
 position = Vector2(-542, 312)
 rotation = -3.0778599
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=728509373]
-position = Vector2(91, 29)
-script = ExtResource("3_ubpg7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=784162743]
-shape = SubResource("CircleShape2D_d02u7")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1457650142]
-rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_0p48j")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=140505898]
 position = Vector2(139, -149)
 scale = Vector2(0.244, 0.22)
@@ -79,6 +77,97 @@ texture = ExtResource("5_d02u7")
 centered = false
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1615494471]
-position = Vector2(94.26221, 154.54547)
+position = Vector2(-584.0165, 672.7274)
+scale = Vector2(1.7815996, 1.1990423)
 texture = ExtResource("6_6rxsm")
 texture_scale = 10.81
+
+[node name="Tete" type="CharacterBody2D" parent="." unique_id=1388428385]
+position = Vector2(17, 69)
+script = ExtResource("5_6rxsm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tete" unique_id=1791625242]
+position = Vector2(341, 46)
+scale = Vector2(0.6484375, 0.5859375)
+texture = ExtResource("4_0p48j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tete" unique_id=1592772549]
+position = Vector2(342.90625, 46.90625)
+shape = SubResource("CapsuleShape2D_qyvfo")
+
+[node name="Corps" type="RigidBody2D" parent="Tete" unique_id=162227785]
+position = Vector2(153, -54)
+mass = 8.787
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Tete/Corps" unique_id=2143310068]
+position = Vector2(28, 100)
+scale = Vector2(1.7578125, 0.78125)
+texture = ExtResource("4_0p48j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tete/Corps" unique_id=745691099]
+position = Vector2(28.5, 100.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4e3kh")
+
+[node name="Queue" type="RigidBody2D" parent="Tete" unique_id=1522562537]
+position = Vector2(-184, 150)
+mass = 2.321
+gravity_scale = 0.0
+inertia = 12.75
+
+[node name="Sprite2D" type="Sprite2D" parent="Tete/Queue" unique_id=637650225]
+position = Vector2(166, -104)
+scale = Vector2(1.28125, 0.2421875)
+texture = ExtResource("4_0p48j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tete/Queue" unique_id=48399954]
+position = Vector2(165.25, -104.375)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_txcwn")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="." unique_id=2067785167]
+position = Vector2(93, 91)
+rotation = 1.3194689
+node_a = NodePath("../Tete/Corps")
+node_b = NodePath("../Tete/Queue")
+bias = 0.9
+disable_collision = false
+length = 44.0
+
+[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="." unique_id=2089638185]
+position = Vector2(93, 138)
+rotation = 1.8221238
+node_a = NodePath("../Tete/Corps")
+node_b = NodePath("../Tete/Queue")
+bias = 0.9
+disable_collision = false
+length = 44.0
+
+[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="." unique_id=700477753]
+position = Vector2(319, 136)
+rotation = 1.5707964
+node_a = NodePath("../Tete")
+node_b = NodePath("../Tete/Corps")
+bias = 0.9
+disable_collision = false
+length = 20.0
+stiffness = 64.0
+damping = 16.0
+
+[node name="DampedSpringJoint2D4" type="DampedSpringJoint2D" parent="." unique_id=1167161117]
+position = Vector2(320, 91)
+rotation = 1.5707964
+node_a = NodePath("../Tete")
+node_b = NodePath("../Tete/Corps")
+bias = 0.9
+disable_collision = false
+length = 20.0
+stiffness = 64.0
+damping = 16.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1625504357]
+position = Vector2(83, 116)
+node_a = NodePath("../Tete/Corps")
+node_b = NodePath("../Tete/Queue")
+disable_collision = false
