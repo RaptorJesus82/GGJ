@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name ennemy_with_sight
 @export var SPEED = 300.0
 @export var trajet : PathFollow2D
+var direction
 
 @onready var raycast = $RayCast2D
 @export var goal : Node2D
@@ -18,7 +19,9 @@ func ray_cast():
 
 func _process(delta):
 	trajet.progress += SPEED*delta
-	self.position=trajet.position
+	direction = trajet.position - self.position
+	velocity = SPEED*direction.normalized()
+	move_and_slide()
 	if ray_cast():
 		print("Player visible!")
 	else:

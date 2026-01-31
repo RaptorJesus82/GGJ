@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dtjaeki172btg"]
 
-[ext_resource type="Script" uid="uid://cchjnd2yoghpo" path="res://Scripts/random_guy.gd" id="1_cvq5f"]
-[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_hra2b"]
+[ext_resource type="Script" uid="uid://cchjnd2yoghpo" path="res://Scripts/random_guy.gd" id="1_8tfmq"]
+[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_7bnx2"]
+[ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="3_trra4"]
+[ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="4_7bnx2"]
 
 [sub_resource type="Curve2D" id="Curve2D_cvq5f"]
 _data = {
@@ -11,6 +13,9 @@ point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beyod"]
 size = Vector2(127, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20vjc"]
+size = Vector2(51, 51)
 
 [node name="TestTimothee" type="Node2D" unique_id=1118742825]
 
@@ -24,7 +29,7 @@ rotation = 0.37158242
 
 [node name="RandomGuy" type="CharacterBody2D" parent="." unique_id=1518667826 node_paths=PackedStringArray("trajet")]
 position = Vector2(200, 0)
-script = ExtResource("1_cvq5f")
+script = ExtResource("1_8tfmq")
 SPEED = 200.0
 trajet = NodePath("../Path2D/PathFollow2D")
 
@@ -33,4 +38,22 @@ position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_beyod")
 
 [node name="Sprite2D" type="Sprite2D" parent="RandomGuy" unique_id=387387900]
-texture = ExtResource("2_hra2b")
+texture = ExtResource("2_7bnx2")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2035732145]
+position = Vector2(-19, 33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=842322848]
+position = Vector2(15.5, -15.5)
+shape = SubResource("RectangleShape2D_20vjc")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1812210794]
+position = Vector2(13.999999, -14.5)
+scale = Vector2(0.192, 0.19600002)
+texture = ExtResource("3_trra4")
+
+[node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("trajet", "goal") instance=ExtResource("4_7bnx2")]
+position = Vector2(349, 69)
+slide_on_ceiling = false
+trajet = NodePath("../Path2D/PathFollow2D")
+goal = NodePath("../CharacterBody2D")
