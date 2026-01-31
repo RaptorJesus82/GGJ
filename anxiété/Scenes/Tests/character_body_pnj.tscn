@@ -21,11 +21,10 @@ animations = [{
 script = ExtResource("1_eadai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=197659206]
-position = Vector2(49, 49)
 shape = SubResource("RectangleShape2D_725ke")
 
 [node name="PNJ" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1470125371]
-position = Vector2(4, 3)
+rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_fjbmv")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1200615059]
