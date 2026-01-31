@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://domswl0cxmo80"]
 
 [ext_resource type="Script" uid="uid://hea53bxgs541" path="res://Scripts/script_pnj.gd" id="1_eadai"]
+[ext_resource type="Script" uid="uid://teaddxs75iq8" path="res://Scripts/parent_pnj.gd" id="1_g30v5"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_5qfbx"]
 [ext_resource type="PackedScene" uid="uid://dfhsb1a47sk5w" path="res://Scenes/enemy_light.tscn" id="3_jy0ci"]
 
@@ -19,14 +20,9 @@ height = 164.5
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jy0ci"]
 polygon = PackedVector2Array(-64, -52, -52, -64, 52, -64, 64, -52, 64, 52, 52, 64, -52, 64, -64, 51)
 
-[sub_resource type="Curve2D" id="Curve2D_jy0ci"]
-_data = {
-"points": PackedVector2Array(168.79887, 10.772625, -168.79887, -10.772625, -542, 312, 0, 0, 0, 0, 442, 295, 0, 0, 0, 0, 452, -292, 0, 0, 0, 0, -521.2805, -285.20547, 0, 0, 0, 0, 456, -296, 0, 0, 0, 0, 445, 298, 0, 0, 0, 0, -488.234, 272.5976, -173.60037, -0.8735504, 173.60037, 0.8735504, -542, 305)
-}
-point_count = 8
-
 [node name="Chat ennemi" type="Node2D" unique_id=861734734]
 position = Vector2(381.74274, 38.444336)
+script = ExtResource("1_g30v5")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="." unique_id=755874879]
 position = Vector2(313, 115)
@@ -34,11 +30,10 @@ node_a = NodePath("../Tete")
 node_b = NodePath("../Corps")
 disable_collision = false
 
-[node name="Corps" type="RigidBody2D" parent="." unique_id=1161705992 node_paths=PackedStringArray("trajet")]
+[node name="Corps" type="RigidBody2D" parent="." unique_id=1161705992]
 position = Vector2(170, 15)
 mass = 6.131
 script = ExtResource("1_eadai")
-trajet = NodePath("../Path2D/PathFollow2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Corps" unique_id=101103376]
 position = Vector2(28, 100)
@@ -133,12 +128,3 @@ position = Vector2(-381.74274, -38.444336)
 position = Vector2(-381.74274, -38.444336)
 occluder = SubResource("OccluderPolygon2D_jy0ci")
 occluder_light_mask = 2
-
-[node name="Path2D" type="Path2D" parent="." unique_id=983406270]
-position = Vector2(340, -136.9079)
-scale = Vector2(1, 0.9259868)
-curve = SubResource("Curve2D_jy0ci")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1198467004]
-position = Vector2(-542, 312)
-rotation = -3.0778599

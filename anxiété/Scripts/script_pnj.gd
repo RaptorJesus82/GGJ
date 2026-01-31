@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name ennemy_with_sight
 @export var SPEED = 300.0
-@export var trajet : PathFollow2D
+var trajet : PathFollow2D
 var direction
 
 @onready var raycast = $RayCast2D
