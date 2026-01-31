@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
-const inertia = 10
-const rotationspeed = 0.1
+const SPEED = 180
+const inertia = 1
+const rotationspeed = 0.006
 
 func _physics_process(delta: float) -> void:
 
