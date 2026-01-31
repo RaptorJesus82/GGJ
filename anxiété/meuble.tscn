@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://biygd4a741gru"]
+
+[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="1_dn1j0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdf71"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dn1j0"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
+
+[node name="Meuble" type="Node2D" unique_id=136959735]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2108040449]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=583992795]
+shape = SubResource("RectangleShape2D_fdf71")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1754953578]
+position = Vector2(1.9073486e-06, -1.9073486e-06)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_dn1j0")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1047737857]
+occluder = SubResource("OccluderPolygon2D_dn1j0")
