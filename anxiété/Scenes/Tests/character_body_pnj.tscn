@@ -4,37 +4,141 @@
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_5qfbx"]
 [ext_resource type="PackedScene" uid="uid://dfhsb1a47sk5w" path="res://Scenes/enemy_light.tscn" id="3_jy0ci"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_725ke"]
-size = Vector2(118, 118)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmkwl"]
+radius = 47.499992
+height = 225.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fjbmv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_5qfbx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48ufq"]
+radius = 40.09375
+height = 80.1875
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvl38"]
+radius = 16.75
+height = 164.5
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jy0ci"]
 polygon = PackedVector2Array(-64, -52, -52, -64, 52, -64, 64, -52, 64, 52, 52, 64, -52, 64, -64, 51)
 
-[node name="CharacterBodyPNJ" type="CharacterBody2D" unique_id=279647907]
+[sub_resource type="Curve2D" id="Curve2D_jy0ci"]
+_data = {
+"points": PackedVector2Array(168.79887, 10.772625, -168.79887, -10.772625, -542, 312, 0, 0, 0, 0, 442, 295, 0, 0, 0, 0, 452, -292, 0, 0, 0, 0, -521.2805, -285.20547, 0, 0, 0, 0, 456, -296, 0, 0, 0, 0, 445, 298, 0, 0, 0, 0, -488.234, 272.5976, -173.60037, -0.8735504, 173.60037, 0.8735504, -542, 305)
+}
+point_count = 8
+
+[node name="Chat ennemi" type="Node2D" unique_id=861734734]
+position = Vector2(381.74274, 38.444336)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="." unique_id=755874879]
+position = Vector2(313, 115)
+node_a = NodePath("../Tete")
+node_b = NodePath("../Corps")
+disable_collision = false
+
+[node name="Corps" type="RigidBody2D" parent="." unique_id=1161705992 node_paths=PackedStringArray("trajet")]
+position = Vector2(170, 15)
+mass = 6.131
 script = ExtResource("1_eadai")
+trajet = NodePath("../Path2D/PathFollow2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=197659206]
-shape = SubResource("RectangleShape2D_725ke")
+[node name="Sprite2D" type="Sprite2D" parent="Corps" unique_id=101103376]
+position = Vector2(28, 100)
+scale = Vector2(1.7578125, 0.78125)
+texture = ExtResource("2_5qfbx")
 
-[node name="PNJ" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1470125371]
-rotation = -1.5707964
-sprite_frames = SubResource("SpriteFrames_fjbmv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corps" unique_id=1889808054]
+position = Vector2(28.5, 100.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wmkwl")
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1200615059]
+[node name="Tete" type="RigidBody2D" parent="." unique_id=827331561]
+position = Vector2(17, 69)
+mass = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="Tete" unique_id=1394237671]
+position = Vector2(341, 46)
+scale = Vector2(0.6484375, 0.5859375)
+texture = ExtResource("2_5qfbx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tete" unique_id=163629285]
+position = Vector2(342.90625, 46.90625)
+shape = SubResource("CapsuleShape2D_48ufq")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="." unique_id=1021524060]
+position = Vector2(93, 91)
+rotation = 1.3194689
+node_a = NodePath("../Corps")
+node_b = NodePath("../Queue")
+bias = 0.9
+disable_collision = false
+length = 44.0
+
+[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="." unique_id=1646415240]
+position = Vector2(93, 138)
+rotation = 1.8221238
+node_a = NodePath("../Corps")
+node_b = NodePath("../Queue")
+bias = 0.9
+disable_collision = false
+length = 44.0
+
+[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="." unique_id=305120544]
+position = Vector2(319, 136)
+rotation = 1.5707964
+node_a = NodePath("../Tete")
+node_b = NodePath("../Corps")
+bias = 0.9
+disable_collision = false
+length = 20.0
+stiffness = 64.0
+damping = 16.0
+
+[node name="DampedSpringJoint2D4" type="DampedSpringJoint2D" parent="." unique_id=1958481082]
+position = Vector2(320, 91)
+rotation = 1.5707964
+node_a = NodePath("../Tete")
+node_b = NodePath("../Corps")
+bias = 0.9
+disable_collision = false
+length = 20.0
+stiffness = 64.0
+damping = 16.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=479959012]
+position = Vector2(83, 116)
+node_a = NodePath("../Corps")
+node_b = NodePath("../Queue")
+disable_collision = false
+
+[node name="Queue" type="RigidBody2D" parent="." unique_id=1241234642]
+position = Vector2(-167, 219)
+mass = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Queue" unique_id=1540117725]
+position = Vector2(166, -104)
+scale = Vector2(1.28125, 0.2421875)
+texture = ExtResource("2_5qfbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Queue" unique_id=805964557]
+position = Vector2(165.25, -104.375)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_uvl38")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=477011479]
+position = Vector2(-381.74274, -38.444336)
 
 [node name="EnemyLight" parent="." unique_id=813941423 instance=ExtResource("3_jy0ci")]
+position = Vector2(-381.74274, -38.444336)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1033366500]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1557407064]
+position = Vector2(-381.74274, -38.444336)
 occluder = SubResource("OccluderPolygon2D_jy0ci")
 occluder_light_mask = 2
+
+[node name="Path2D" type="Path2D" parent="." unique_id=983406270]
+position = Vector2(340, -136.9079)
+scale = Vector2(1, 0.9259868)
+curve = SubResource("Curve2D_jy0ci")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1198467004]
+position = Vector2(-542, 312)
+rotation = -3.0778599
