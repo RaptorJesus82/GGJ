@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dfhsb1a47sk5w"]
 
-[ext_resource type="Script" uid="uid://b63q3vvkvq0t7" path="res://enemy_light.gd" id="1_0nfu2"]
-[ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="1_uesef"]
+[ext_resource type="Script" uid="uid://b6h4dw8cw40rp" path="res://Scripts/theHolyLight.gd" id="1_71f0o"]
+[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_71f0o"]
 
 [node name="EnemyLight" type="Node2D" unique_id=813941423]
-script = ExtResource("1_0nfu2")
+script = ExtResource("1_71f0o")
 color = Color(1, 1, 1, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1127800982]
@@ -13,6 +13,7 @@ scale = Vector2(1.1992188, 1.1992188)
 energy = 5.0
 shadow_enabled = true
 shadow_filter = 1
-texture = ExtResource("1_uesef")
+shadow_item_cull_mask = 2
+texture = ExtResource("2_71f0o")
 texture_scale = 5.0
 height = 100.0

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hea53bxgs541" path="res://Scripts/script_pnj.gd" id="1_eadai"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_5qfbx"]
+[ext_resource type="PackedScene" uid="uid://dfhsb1a47sk5w" path="res://Scenes/enemy_light.tscn" id="3_jy0ci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_725ke"]
 size = Vector2(118, 118)
@@ -17,6 +18,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jy0ci"]
+polygon = PackedVector2Array(-64, -52, -52, -64, 52, -64, 64, -52, 64, 52, 52, 64, -52, 64, -64, 51)
+
 [node name="CharacterBodyPNJ" type="CharacterBody2D" unique_id=279647907]
 script = ExtResource("1_eadai")
 
@@ -28,3 +32,9 @@ rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_fjbmv")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1200615059]
+
+[node name="EnemyLight" parent="." unique_id=813941423 instance=ExtResource("3_jy0ci")]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1033366500]
+occluder = SubResource("OccluderPolygon2D_jy0ci")
+occluder_light_mask = 2
