@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dpbwdg30gtjx4"]
+
+[ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="1_xg1k6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_725ke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_meeow"]
+size = Vector2(256, 264)
+
+[node name="python" type="StaticBody2D" unique_id=1238169934]
+physics_material_override = SubResource("PhysicsMaterial_725ke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1663961332]
+shape = SubResource("RectangleShape2D_meeow")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=712480474]
+texture = ExtResource("1_xg1k6")
