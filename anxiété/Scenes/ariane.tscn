@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bxaeqxpsnm1b6"]
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_0bhhs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5muip"]
+
+[node name="Ariane" type="CharacterBody2D" unique_id=1063887702]
+position = Vector2(199, 135)
+scale = Vector2(22.622252, -23.07879)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=1333170337]
+position = Vector2(-1.5913537, 2.253151)
+modification_stack = SubResource("SkeletonModificationStack2D_0bhhs")
+
+[node name="head" type="Bone2D" parent="Skeleton2D" unique_id=1883504491]
+position = Vector2(6.055983, -2.5564597)
+rest = Transform2D(1, 0, 0, 1, 6.7190485, -1.3865545)
+
+[node name="mid" type="Bone2D" parent="Skeleton2D/head" unique_id=67653662]
+position = Vector2(6.984275, -5.0262604)
+rest = Transform2D(1, 0, 0, 1, 5.967575, -6.7161236)
+
+[node name="tail" type="Bone2D" parent="Skeleton2D/head/mid" unique_id=682625793]
+position = Vector2(14.852635, -0.693277)
+rest = Transform2D(1, 0, 0, 1, 10.166982, -3.8996844)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=287897335]
+position = Vector2(14.6758175, -21.361605)
+shape = SubResource("CircleShape2D_5muip")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=827225690]
+
+[node name="CollisionPolygon2D" type="Polygon2D" parent="Node2D" unique_id=368183421]
+position = Vector2(3.138503, 6.1528354)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-0.08840847, 0.17331934, 5.7023516, -2.6864495, 6.940071, -7.4094005, 5.0392876, -12.782299, -3.0500941, -13.345587, -7.2494993, -6.672793, -4.6414475, -1.1699052)
+uv = PackedVector2Array(-16.72644, 18.36406, 26.909912, 26.545876, 90.546265, 1.0913315, 42.36444, -29.817757, -3.9991455, -47.999573, -20.362793, -17.090485, -23.090088, 0.18224335)
+bones = ["head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "head/mid", PackedFloat32Array(1, 1, 0.5, 0.5, 0.5, 0.5, 1), "head/mid/tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
+
+[node name="CollisionPolygon2D2" type="Polygon2D" parent="Node2D" unique_id=1082448098]
+position = Vector2(2.1218047, -1.0832458)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(12.200379, -7.3660703, 20.112942, -8.622635, 20.333965, -0.21664906, 14.808431, 2.4264705, 12.863442, -0.21664906)
+bones = ["head", PackedFloat32Array(0, 0, 0, 0, 0), "head/mid", PackedFloat32Array(1, 1, 1, 1, 1), "head/mid/tail", PackedFloat32Array(0, 0, 0, 0, 0)]
