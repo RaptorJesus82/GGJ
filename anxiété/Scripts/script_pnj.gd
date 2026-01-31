@@ -1,34 +1,27 @@
 extends CharacterBody2D
-
-var speed = 300
-
-func _physics_process(delta):
-	var input_dir = Vector2.ZERO
-
-	if Input.is_action_pressed("ui_left"):
-		input_dir.x -= 1
-
-	if Input.is_action_pressed("ui_right"):
-		input_dir.x += 1
-
-	if Input.is_action_pressed("ui_up"):
-		input_dir.y -= 1
-
-	if Input.is_action_pressed("ui_down"):
-		input_dir.y += 1
-
-	velocity = input_dir.normalized() * speed
-	move_and_collide(velocity * delta)
+class_name ennemy_with_sight
+@export var SPEED = 300.0
+@export var trajet : PathFollow2D
+var direction
 
 @onready var raycast = $RayCast2D
 @export var goal : Node2D
+@export var distance_max_vue = 200000
 
 func ray_cast():
 	if goal == null:
 		return false
 	raycast.target_position = raycast.to_local(goal.global_position)
 	raycast.force_raycast_update()
-	if raycast.is_colliding():
+	#print((goal.global_position - self.position).normalized())
+	#print(direction.normalized())
+	if (goal.global_position - self.position).dot(goal.global_position - self.position) > distance_max_vue:
+		#print("trop loin")
+		return false
+	if (goal.global_position - self.position).normalized().dot(direction.normalized()) < 0.75:
+		#print("angle trop grand")
+		return false
+	elif raycast.is_colliding():
 		return raycast.get_collider() == goal
 	
 	return false
@@ -38,3 +31,10 @@ func _process(delta):
 		print("Player visible!")
 	else:
 		print("Player hidden!")
+		
+func _physics_process(delta: float) -> void:
+	trajet.progress += SPEED*delta
+	direction = trajet.position - self.position
+	velocity = SPEED*direction.normalized()
+	look_at(trajet.position)
+	move_and_slide()

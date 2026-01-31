@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bxaeqxpsnm1b6"]
+
+[ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="1_qofr2"]
+[ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="2_51ofc"]
+[ext_resource type="Script" uid="uid://8mgya45lidia" path="res://Scenes/character_body_2d.gd" id="3_2yj68"]
+[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="4_51ofc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghu44"]
+
+[node name="Ariane" type="Node2D" unique_id=599391189]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1603106688]
+texture = ExtResource("1_qofr2")
+centered = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=980164928]
+position = Vector2(92, 29)
+texture = ExtResource("2_51ofc")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1124364943]
+position = Vector2(90, 29)
+script = ExtResource("3_2yj68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1999676636]
+shape = SubResource("CircleShape2D_ghu44")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1235391137]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_51ofc")
