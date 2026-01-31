@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dfhsb1a47sk5w"]
+
+[ext_resource type="Script" uid="uid://bbcb3iv452f0b" path="res://enemy_light.gd" id="1_0nfu2"]
+[ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="1_uesef"]
+
+[node name="EnemyLight" type="Node2D" unique_id=813941423]
+script = ExtResource("1_0nfu2")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1127800982]
+position = Vector2(0, -2.3841858e-07)
+scale = Vector2(1.1992188, 1.1992188)
+energy = 2.0
+texture = ExtResource("1_uesef")
+texture_scale = 2.0
+height = 100.0

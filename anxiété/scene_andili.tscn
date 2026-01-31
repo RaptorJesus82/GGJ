@@ -23,7 +23,7 @@ color = Color(0.69799274, 0.69799274, 0.69799274, 1)
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=143105888]
 position = Vector2(232.18752, 139.5625)
 scale = Vector2(0.14697258, 0.12939447)
-energy = 1.83
+energy = 2.0
 shadow_enabled = true
 shadow_filter = 1
 texture = ExtResource("3_123vp")
