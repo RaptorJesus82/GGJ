@@ -18,11 +18,13 @@ func ray_cast():
 	return false
 
 func _process(delta):
-	trajet.progress += SPEED*delta
-	direction = trajet.position - self.position
-	velocity = SPEED*direction.normalized()
-	move_and_slide()
 	if ray_cast():
 		print("Player visible!")
 	else:
 		print("Player hidden!")
+		
+func _physics_process(delta: float) -> void:
+	trajet.progress += SPEED*delta
+	direction = trajet.position - self.position
+	velocity = SPEED*direction.normalized()
+	move_and_slide()
