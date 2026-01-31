@@ -1,33 +1,17 @@
 [gd_scene format=3 uid="uid://clpmwlquck0jw"]
 
 [ext_resource type="PackedScene" uid="uid://dpbwdg30gtjx4" path="res://Scenes/Tests/python.tscn" id="2_fjbmv"]
-[ext_resource type="Script" uid="uid://8mgya45lidia" path="res://Scenes/character_body_2d.gd" id="3_ubpg7"]
-[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="4_0p48j"]
 [ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="4_meeow"]
+[ext_resource type="PackedScene" uid="uid://bcjdxy16asp58" path="res://Scenes/perso_principal_marc.tscn" id="5_0p48j"]
 [ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="5_d02u7"]
 [ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="6_6rxsm"]
-
-[sub_resource type="Curve2D" id="Curve2D_7oek5"]
-_data = {
-"points": PackedVector2Array(168.79887, 10.772625, -168.79887, -10.772625, -542, 312, 0, 0, 0, 0, 442, 295, 0, 0, 0, 0, 452, -292, 0, 0, 0, 0, -521.2805, -285.20547, 0, 0, 0, 0, 456, -296, 0, 0, 0, 0, 445, 298, 0, 0, 0, 0, -488.234, 272.5976, -173.60037, -0.8735504, 173.60037, 0.8735504, -542, 305)
-}
-point_count = 8
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_d02u7"]
 
 [node name="Florian" type="Node2D" unique_id=1382921374]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=882143817]
 
-[node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("trajet", "goal") instance=ExtResource("4_meeow")]
-position = Vector2(-512, 238)
-slide_on_ceiling = false
-trajet = NodePath("../Path2D/PathFollow2D")
-goal = NodePath("../CharacterBody2D")
-
-[node name="python" parent="." unique_id=1238169934 instance=ExtResource("2_fjbmv")]
-position = Vector2(-438.00006, -121)
-scale = Vector2(5, 0.2)
+[node name="CharacterBodyPNJ" parent="." unique_id=279647907 instance=ExtResource("4_meeow")]
+position = Vector2(-345, 119)
 
 [node name="python4" parent="." unique_id=999238702 instance=ExtResource("2_fjbmv")]
 position = Vector2(-34, -335)
@@ -47,31 +31,6 @@ position = Vector2(-592, 21.000002)
 rotation = 1.6179202
 scale = Vector2(5, 0.2)
 
-[node name="python3" parent="." unique_id=966940138 instance=ExtResource("2_fjbmv")]
-position = Vector2(-427, 132)
-scale = Vector2(5, 0.2)
-
-[node name="Path2D" type="Path2D" parent="." unique_id=606126816]
-position = Vector2(0, -21.907896)
-scale = Vector2(1, 0.9259868)
-curve = SubResource("Curve2D_7oek5")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1799093305]
-position = Vector2(-542, 312)
-rotation = -3.0778599
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=728509373]
-position = Vector2(91, 29)
-script = ExtResource("3_ubpg7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=784162743]
-shape = SubResource("CircleShape2D_d02u7")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1457650142]
-rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_0p48j")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=140505898]
 position = Vector2(139, -149)
 scale = Vector2(0.244, 0.22)
@@ -79,6 +38,10 @@ texture = ExtResource("5_d02u7")
 centered = false
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1615494471]
-position = Vector2(94.26221, 154.54547)
+position = Vector2(-561.47546, 731.8181)
+scale = Vector2(1.7815996, 1.1990423)
 texture = ExtResource("6_6rxsm")
 texture_scale = 10.81
+
+[node name="Node2D" parent="." unique_id=861734734 instance=ExtResource("5_0p48j")]
+position = Vector2(-258, -160)
