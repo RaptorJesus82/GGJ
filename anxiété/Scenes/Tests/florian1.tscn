@@ -3,13 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://dpbwdg30gtjx4" path="res://Scenes/Tests/python.tscn" id="2_fjbmv"]
 [ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="4_meeow"]
 
+[sub_resource type="Curve2D" id="Curve2D_7oek5"]
+_data = {
+"points": PackedVector2Array(-115.3719, -44.958675, 115.3719, 44.958675, 0, 0, 41.0648, -47.916, -41.0648, 47.916, 200, 200, -206.64124, 166.00232, 206.64124, -166.00232, -200, 121, -319.93594, 22.254322, 319.93594, -22.254322, -232, -169, -108.0072, -31.944, 108.0072, 31.944, 0, 0)
+}
+point_count = 5
+
 [node name="Florian" type="Node2D" unique_id=1382921374]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=882143817]
 
-[node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("goal") instance=ExtResource("4_meeow")]
+[node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("trajet", "goal") instance=ExtResource("4_meeow")]
 position = Vector2(349, 69)
 slide_on_ceiling = false
+trajet = NodePath("../Path2D/PathFollow2D")
 goal = NodePath("../python")
 
 [node name="python" parent="." unique_id=1238169934 instance=ExtResource("2_fjbmv")]
@@ -17,3 +24,9 @@ position = Vector2(3, 4)
 
 [node name="python2" parent="." unique_id=1402396448 instance=ExtResource("2_fjbmv")]
 position = Vector2(-349, 4)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=67222374]
+curve = SubResource("Curve2D_7oek5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=212913013]
+rotation = 0.37158242
