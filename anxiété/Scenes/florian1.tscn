@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clpmwlquck0jw"]
 
-[ext_resource type="PackedScene" uid="uid://dpbwdg30gtjx4" path="res://python.tscn" id="2_fjbmv"]
-[ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://character_body_pnj.tscn" id="4_meeow"]
+[ext_resource type="PackedScene" uid="uid://dpbwdg30gtjx4" path="res://Scenes/python.tscn" id="2_fjbmv"]
+[ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/character_body_pnj.tscn" id="4_meeow"]
 
 [node name="Florian" type="Node2D" unique_id=1382921374]
 
