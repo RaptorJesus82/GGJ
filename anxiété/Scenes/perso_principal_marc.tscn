@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5856ppd0alg3"]
 
-[ext_resource type="Script" path="res://Scripts/perso_principal_marc.gd" id="1_27yu7"]
+[ext_resource type="Script" uid="uid://bqyietb38t7hk" path="res://Scripts/perso_principal_marc.gd" id="1_27yu7"]
 [ext_resource type="Script" uid="uid://h683u7m3x66d" path="res://Scripts/muting_cat.gd" id="1_jjfqu"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_s07hf"]
 [ext_resource type="Texture2D" uid="uid://gg2eyxth5uw0" path="res://animation assets/frames corps/IMG_9540.png" id="3_d5pws"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c3hjpcaxhola0" path="res://animation assets/frames corps/IMG_9543.png" id="6_y62ii"]
 [ext_resource type="Texture2D" uid="uid://b4u1cbtu56e31" path="res://animation assets/frames tete/IMG_9545.png" id="9_wod8o"]
 [ext_resource type="Texture2D" uid="uid://dqo2r7h83wesv" path="res://animation assets/frames tete/IMG_9546.png" id="10_y62ii"]
-[ext_resource type="Script" uid="uid://deoqds23n20af" path="res://Scenes/sprite_2d.gd" id="11_y62ii"]
+[ext_resource type="Script" path="res://Scenes/sprite_2d.gd" id="11_y62ii"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oruv1"]
 animations = [{
@@ -78,6 +78,7 @@ height = 164.5
 radius = 28.071337
 
 [node name="player" type="Node2D" unique_id=861734734 node_paths=PackedStringArray("mutations")]
+position = Vector2(-197, -113)
 script = ExtResource("1_jjfqu")
 mutations = [NodePath("Corps/mutationEpauleGauche"), NodePath("Corps/mutationEpauleDroite"), NodePath("Tete/mutationTete"), NodePath("Queue/mutationQueue")]
 
@@ -133,6 +134,12 @@ position = Vector2(0.5, -0.50000024)
 scale = Vector2(0.107999995, 0.107999995)
 texture = ExtResource("3_s07hf")
 
+[node name="Node2D" type="Node2D" parent="Corps" unique_id=91672620]
+position = Vector2(26, 99)
+
+[node name="Camera2D" type="Camera2D" parent="Corps/Node2D" unique_id=1253060198]
+zoom = Vector2(0.3, 0.3)
+
 [node name="Tete" type="RigidBody2D" parent="." unique_id=827331561]
 position = Vector2(17, 69)
 mass = 0.5
@@ -163,7 +170,7 @@ position = Vector2(0.5, -0.50000024)
 scale = Vector2(0.107999995, 0.107999995)
 texture = ExtResource("3_s07hf")
 
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="." unique_id=1021524060]
+[node name="corps_queue1" type="DampedSpringJoint2D" parent="." unique_id=1021524060]
 position = Vector2(93, 91)
 rotation = 1.3194689
 node_a = NodePath("../Corps")
@@ -172,7 +179,7 @@ bias = 0.9
 disable_collision = false
 length = 44.0
 
-[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="." unique_id=1646415240]
+[node name="corps_queue2" type="DampedSpringJoint2D" parent="." unique_id=1646415240]
 position = Vector2(93, 138)
 rotation = 1.8221238
 node_a = NodePath("../Corps")
@@ -181,27 +188,27 @@ bias = 0.9
 disable_collision = false
 length = 44.0
 
-[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="." unique_id=305120544]
-position = Vector2(319, 136)
-rotation = 1.5707964
+[node name="tete_corps1" type="DampedSpringJoint2D" parent="." unique_id=305120544]
+position = Vector2(332.00003, 126.000015)
+rotation = 1.2356931
 node_a = NodePath("../Tete")
 node_b = NodePath("../Corps")
 bias = 0.9
 disable_collision = false
-length = 20.0
-stiffness = 64.0
-damping = 16.0
+length = 43.0
+stiffness = 4.0
+damping = 4.0
 
-[node name="DampedSpringJoint2D4" type="DampedSpringJoint2D" parent="." unique_id=1958481082]
-position = Vector2(320, 91)
-rotation = 1.5707964
+[node name="tete_corps2" type="DampedSpringJoint2D" parent="." unique_id=1958481082]
+position = Vector2(332, 101)
+rotation = 1.9058995
 node_a = NodePath("../Tete")
 node_b = NodePath("../Corps")
 bias = 0.9
 disable_collision = false
-length = 20.0
-stiffness = 64.0
-damping = 16.0
+length = 43.0
+stiffness = 4.0
+damping = 4.0
 
 [node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=479959012]
 position = Vector2(83, 116)
