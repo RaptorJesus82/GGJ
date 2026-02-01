@@ -19,7 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if int(stress) > len(currentMutation):
+	if int(stress) > len(currentMutation) and len(remainingMutation)>0:
 		mut = remainingMutation.pop_at(remainingMutation.find(remainingMutation.pick_random()))
 		mut.show()
 		currentMutation.append(mut)
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		mut.hide()
 		remainingMutation.append(mut)
 		muted_down.emit(mut)
-	if not seen :
+	if not seen and stress >= calming :
 		stress -= calming
 	else :
 		seen = false
