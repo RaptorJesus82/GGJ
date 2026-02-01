@@ -5,6 +5,7 @@ var remainingMutation : Array[Node2D]
 var currentMutation : Array[Node2D]
 var stress : float =1.5
 var mut
+@export var stress_on_sight : float =0.001
 signal muted_up
 signal muted_down
 # Called when the node enters the scene tree for the first time.
@@ -26,3 +27,6 @@ func _process(delta: float) -> void:
 		mut.hide()
 		remainingMutation.append(mut)
 		muted_down.emit(mut)
+
+func stress_increase():
+	stress += stress_on_sight
