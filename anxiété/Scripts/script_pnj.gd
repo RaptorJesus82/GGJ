@@ -29,7 +29,9 @@ func ray_cast():
 		if (mutation.global_position - self.position).normalized().dot(direction.normalized()) < 0.75:
 			return false
 		elif raycast.is_colliding():
-			return raycast.get_collider() == mutation
+			if raycast.get_collider() == mutation:
+				mutation.seen()
+				return true
 	
 	return false
 
