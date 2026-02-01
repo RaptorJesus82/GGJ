@@ -18,6 +18,13 @@ func _physics_process(delta):
 
 	# --- Avancer ---
 	if Input.is_action_pressed("ui_up"):
+		print("non")
 		var forward = Vector2.RIGHT.rotated(rotation)
 		if linear_velocity.length() < MAX_SPEED:
 			apply_central_force(forward * FORCE)
+			
+	if Input.is_action_pressed("ui_down"):
+		print("oui")
+		var backward = Vector2.LEFT.rotated(rotation)
+		if linear_velocity.length() < MAX_SPEED:
+			apply_central_force(backward * FORCE * 0.4)
