@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://c5856ppd0alg3"]
 
 [ext_resource type="Script" path="res://Scripts/perso_principal_marc.gd" id="1_27yu7"]
-[ext_resource type="Script" path="res://Scripts/muting_cat.gd" id="1_jjfqu"]
+[ext_resource type="Script" uid="uid://h683u7m3x66d" path="res://Scripts/muting_cat.gd" id="1_jjfqu"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_s07hf"]
 [ext_resource type="Texture2D" uid="uid://gg2eyxth5uw0" path="res://animation assets/frames corps/IMG_9540.png" id="3_d5pws"]
 [ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="3_s07hf"]
 [ext_resource type="Texture2D" uid="uid://qhoimiqd4g8l" path="res://animation assets/frames corps/IMG_9541.png" id="4_j04vs"]
-[ext_resource type="Script" path="res://Scripts/mutation.gd" id="5_8p25h"]
+[ext_resource type="Script" uid="uid://4016hl88v6p" path="res://Scripts/mutation.gd" id="5_8p25h"]
 [ext_resource type="Texture2D" uid="uid://cxxm8jfj6tu4k" path="res://animation assets/frames corps/IMG_9542.png" id="5_wod8o"]
 [ext_resource type="Texture2D" uid="uid://c3hjpcaxhola0" path="res://animation assets/frames corps/IMG_9543.png" id="6_y62ii"]
 [ext_resource type="Texture2D" uid="uid://b4u1cbtu56e31" path="res://animation assets/frames tete/IMG_9545.png" id="9_wod8o"]
 [ext_resource type="Texture2D" uid="uid://dqo2r7h83wesv" path="res://animation assets/frames tete/IMG_9546.png" id="10_y62ii"]
+[ext_resource type="Script" uid="uid://deoqds23n20af" path="res://Scenes/sprite_2d.gd" id="11_y62ii"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oruv1"]
 animations = [{
@@ -35,7 +36,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmkwl"]
@@ -96,7 +97,8 @@ position = Vector2(24.015, 92.705)
 rotation = 1.5707964
 scale = Vector2(0.355, 0.355)
 sprite_frames = SubResource("SpriteFrames_oruv1")
-frame_progress = 0.3636256
+frame_progress = 0.25833496
+script = ExtResource("11_y62ii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corps" unique_id=1889808054]
 position = Vector2(28.5, 100.5)
@@ -140,7 +142,8 @@ position = Vector2(178.4, 53.595)
 rotation = 1.5707964
 scale = Vector2(0.36, 0.36)
 sprite_frames = SubResource("SpriteFrames_p00ic")
-frame_progress = 0.08277526
+frame_progress = 0.23708287
+script = ExtResource("11_y62ii")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tete" unique_id=163629285]
 position = Vector2(342.90625, 46.90625)
