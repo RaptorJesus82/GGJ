@@ -33,6 +33,12 @@ func _process(delta: float) -> void:
 		stress -= calming
 	else :
 		seen = false
+	if int(stress) > len(mutations):
+		$Corps/mutationEpauleDroite.set_collision_layer_value(1, true)
+		$Corps/mutationEpauleGauche.set_collision_layer_value(1, true)
+		$Tete/mutationTete.set_collision_layer_value(1, true)
+		$Queue/mutationQueue.set_collision_layer_value(1, true)
+
 
 func stress_increase():
 	stress += stress_on_sight
