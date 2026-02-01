@@ -5,27 +5,22 @@ var trajet : PathFollow2D
 var direction
 
 @onready var raycast = $RayCast2D
-@export var goal : Node2D
 @export var distance_max_vue = 200000
 const TORQUE_FORCE = 700000.0
 const MAX_SPEED = 400.0
 const FORCE = 12000.0
+var mutations = Array()
 
 func ray_cast():
-	if goal == null:
-		return false
-	raycast.target_position = raycast.to_local(goal.global_position)
-	raycast.force_raycast_update()
-	#print((goal.global_position - self.position).normalized())
-	#print(direction.normalized())
-	if (goal.global_position - self.position).dot(goal.global_position - self.position) > distance_max_vue:
-		#print("trop loin")
-		return false
-	if (goal.global_position - self.position).normalized().dot(direction.normalized()) < 0.75:
-		#print("angle trop grand")
-		return false
-	elif raycast.is_colliding():
-		return raycast.get_collider() == goal
+	for mutation in mutations:
+		raycast.target_position = raycast.to_local(mutation.global_position)
+		raycast.force_raycast_update()
+		if (mutation.global_position - self.position).dot(mutation.global_position - self.position) > distance_max_vue:
+			return false
+		if (mutation.global_position - self.position).normalized().dot(direction.normalized()) < 0.75:
+			return false
+		elif raycast.is_colliding():
+			return raycast.get_collider() == mutation
 	
 	return false
 
