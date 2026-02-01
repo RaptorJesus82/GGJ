@@ -6,7 +6,7 @@ var currentMutation : Array[Node2D]
 var stress : float =1.5
 var mut
 var dead : bool = false
-@export var stress_on_sight : float =0.000001
+@export var stress_on_sight : float =0.001
 @export var calming = 0.001
 @export var stress_on_collide : float = 0.5
 var seen : bool = false
@@ -21,6 +21,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(stress)
 	if int(stress) > len(currentMutation) and len(remainingMutation)>0:
 		mut = remainingMutation.pop_at(remainingMutation.find(remainingMutation.pick_random()))
 		mut.show()
@@ -35,7 +36,6 @@ func _process(delta: float) -> void:
 		stress -= calming
 	else :
 		seen = false
-	stress += stress_on_sight
 	if int(stress) > len(mutations):
 		$Corps/mutationEpauleDroite.set_collision_layer_value(1, true)
 		$Corps/mutationEpauleGauche.set_collision_layer_value(1, true)

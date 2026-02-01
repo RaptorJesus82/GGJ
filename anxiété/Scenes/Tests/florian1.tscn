@@ -87,7 +87,7 @@ texture = ExtResource("5_6rxsm")
 
 [node name="player" parent="." unique_id=861734734 instance=ExtResource("5_0p48j")]
 position = Vector2(-1655, 962)
-stress_on_sight = 1.0
+stress_on_sight = 0.01
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1530714510]
 
