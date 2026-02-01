@@ -4,13 +4,22 @@ class_name ennemy_with_sight
 var trajet : PathFollow2D
 var direction
 
-@onready var raycast = $RayCast2D
+@onready var raycast = $"../Tete/RayCast2D"
 @export var distance_max_vue = 200000
 const TORQUE_FORCE = 700000.0
 const MAX_SPEED = 400.0
 const FORCE = 12000.0
 var mutations = Array()
-
+var player
+func _ready():
+	player = $"../../player"
+	player.muted_up.connect(_on_muting_cat_muted_up)
+	player.muted_down.connect(_on_muting_cat_muted_down)
+	
+func _on_muting_cat_muted_up(mutation : Node2D):
+	mutations.append(mutation)
+func _on_muting_cat_muted_down(mutation : Node2D):
+	mutations.erase(mutation)
 func ray_cast():
 	for mutation in mutations:
 		raycast.target_position = raycast.to_local(mutation.global_position)

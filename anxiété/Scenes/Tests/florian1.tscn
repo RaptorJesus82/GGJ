@@ -50,9 +50,6 @@ scale = Vector2(1.7815996, 1.1990423)
 texture = ExtResource("6_6rxsm")
 texture_scale = 10.81
 
-[node name="Node2D" parent="." unique_id=861734734 instance=ExtResource("5_0p48j")]
-position = Vector2(-258, -160)
-
 [node name="Path2D" type="Path2D" parent="." unique_id=2098164488]
 position = Vector2(340, -136.9079)
 scale = Vector2(1, 0.9259868)
@@ -61,3 +58,5 @@ curve = SubResource("Curve2D_0p48j")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=42616205]
 position = Vector2(-542, 312)
 rotation = -3.0778599
+
+[node name="player" parent="." unique_id=861734734 instance=ExtResource("5_0p48j")]

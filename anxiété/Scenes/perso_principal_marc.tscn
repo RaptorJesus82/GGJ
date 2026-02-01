@@ -29,7 +29,7 @@ height = 164.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfajj"]
 radius = 28.071337
 
-[node name="Node2D" type="Node2D" unique_id=861734734 node_paths=PackedStringArray("mutations")]
+[node name="player" type="Node2D" unique_id=861734734 node_paths=PackedStringArray("mutations")]
 script = ExtResource("1_jjfqu")
 mutations = [NodePath("Corps/CollisionShape2D/mutationEpauleGauche"), NodePath("Corps/CollisionShape2D/mutationEpauleDroite"), NodePath("Tete/CollisionShape2D2/mutationTete"), NodePath("Queue/CollisionShape2D/mutationQueue")]
 
