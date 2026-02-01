@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dqo2r7h83wesv" path="res://animation assets/frames tete/IMG_9546.png" id="10_y62ii"]
 [ext_resource type="Script" uid="uid://deoqds23n20af" path="res://Scenes/sprite_2d.gd" id="11_y62ii"]
 [ext_resource type="Texture2D" uid="uid://cipsvm3bvrskb" path="res://animation assets/queue/IMG_9547.png" id="12_p00ic"]
+[ext_resource type="Script" uid="uid://cfigf2xyhty7i" path="res://Scenes/queue.gd" id="12_qqqc8"]
 [ext_resource type="Texture2D" uid="uid://buvj7j3o0lyy5" path="res://animation assets/queue/IMG_9548.png" id="13_qqqc8"]
 [ext_resource type="Texture2D" uid="uid://b8hnq7gvl3rlm" path="res://animation assets/queue/IMG_9549.png" id="14_4ukxe"]
 
@@ -172,7 +173,7 @@ rotation = 1.5707964
 scale = Vector2(0.36, 0.36)
 sprite_frames = SubResource("SpriteFrames_p00ic")
 frame_progress = 0.23708287
-script = ExtResource("11_y62ii")
+script = ExtResource("12_qqqc8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tete" unique_id=163629285]
 position = Vector2(342.90625, 46.90625)
@@ -248,6 +249,7 @@ rotation = 1.5707964
 scale = Vector2(0.355, 0.355)
 sprite_frames = SubResource("SpriteFrames_f47r0")
 frame_progress = 0.4169587
+script = ExtResource("12_qqqc8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Queue" unique_id=805964557]
 position = Vector2(165.25, -104.375)
