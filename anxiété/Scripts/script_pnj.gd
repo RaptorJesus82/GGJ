@@ -1,19 +1,21 @@
 extends RigidBody2D
 class_name ennemy_with_sight
-@export var SPEED = 300.0
+var SPEED
 var trajet : PathFollow2D
 var direction
 var i : int
 
-@export var distance_max_vue = 200000
-const TORQUE_FORCE = 700000.0
-const MAX_SPEED = 400.0
-const FORCE = 12000.0
+var distance_max_vue
+var TORQUE_FORCE = 600000.0
+var MAX_SPEED = 400.0
+var FORCE = 12000.0
 var mutations = Array()
 var raycasts = Array()
 var player
+var angle_dir
+
 func _ready():
-	player = $"../../player"
+	player = $"../../../../player"
 	player.muted_up.connect(_on_muting_cat_muted_up)
 	player.muted_down.connect(_on_muting_cat_muted_down)
 	
@@ -22,11 +24,13 @@ func _on_muting_cat_muted_up(mutation : Node2D):
 	raycasts.append(RayCast2D.new())
 	raycasts[-1].set_collision_mask(2)
 	$"../Tete/Laser".add_child(raycasts[-1])
+	
 func _on_muting_cat_muted_down(mutation : Node2D):
 	i=mutations.find(mutation)
 	mutations.pop_at(i)
 	raycasts[i].queue_free()
 	raycasts.pop_at(i)
+	
 func ray_cast():
 	for i in range(len(mutations)):
 		raycasts[i].target_position = raycasts[i].to_local(mutations[i].global_position)

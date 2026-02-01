@@ -8,7 +8,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_0p48j"]
 _data = {
-"points": PackedVector2Array(168.79887, 10.772625, -168.79887, -10.772625, -542, 312, 0, 0, 0, 0, 442, 295, 0, 0, 0, 0, 452, -292, 0, 0, 0, 0, -521.2805, -285.20547, 0, 0, 0, 0, 456, -296, 0, 0, 0, 0, 445, 298, 0, 0, 0, 0, -488.234, 272.5976, -173.60037, -0.8735504, 173.60037, 0.8735504, -542, 305)
+"points": PackedVector2Array(168.79887, 10.772625, -168.79887, -10.772625, -542, 312, 0, 0, 0, 0, -629.21857, -229.49997, 0, 0, 0, 0, -596.8556, -284.59995, 0, 0, 0, 0, -521.2805, -285.20547, 0, 0, 0, 0, 456, -296, 0, 0, 0, 0, 445, 298, 0, 0, 0, 0, -488.234, 272.5976, -173.60037, -0.8735504, 173.60037, 0.8735504, -542, 305)
 }
 point_count = 8
 
@@ -22,22 +22,31 @@ path = NodePath("../Path2D/PathFollow2D")
 position = Vector2(-15, -1468)
 scale = Vector2(25, 0.2)
 
+[node name="python8" parent="." unique_id=1238169934 instance=ExtResource("2_fjbmv")]
+position = Vector2(665, 1254)
+scale = Vector2(5, 1)
+
+[node name="python9" parent="." unique_id=1447743646 instance=ExtResource("2_fjbmv")]
+position = Vector2(1450, 748)
+rotation = 1.5707964
+scale = Vector2(5, 1)
+
+[node name="python7" parent="." unique_id=1483751824 instance=ExtResource("2_fjbmv")]
+position = Vector2(-661, -683)
+scale = Vector2(5, 2)
+
 [node name="python5" parent="." unique_id=1373510585 instance=ExtResource("2_fjbmv")]
 position = Vector2(-3, 1878)
 scale = Vector2(25, 0.2)
 
-[node name="python7" parent="." unique_id=1238169934 instance=ExtResource("2_fjbmv")]
-position = Vector2(-1162, -19)
-scale = Vector2(10, 0.2)
-
 [node name="python2" parent="." unique_id=1402396448 instance=ExtResource("2_fjbmv")]
 position = Vector2(2523, 27.000002)
-rotation = 1.6179202
+rotation = 1.5707964
 scale = Vector2(25, 0.2)
 
 [node name="python6" parent="." unique_id=1342638013 instance=ExtResource("2_fjbmv")]
 position = Vector2(-2424, -3.0000057)
-rotation = 1.6179202
+rotation = 1.5707964
 scale = Vector2(25, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=140505898]
@@ -63,4 +72,4 @@ rotation = -3.0778599
 
 [node name="player" parent="." unique_id=861734734 instance=ExtResource("5_0p48j")]
 position = Vector2(-1655, 962)
-stress_on_sight = 0.2
+stress_on_sight = 1.0
