@@ -50,5 +50,3 @@ func stress_increase():
 func _on_corps_body_entered(body: Node) -> void:
 	if body.is_in_group("Enemies"):
 		stress += stress_on_collide
-		print("enemy")
-	print("jsp")
