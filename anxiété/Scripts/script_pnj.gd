@@ -3,6 +3,7 @@ class_name ennemy_with_sight
 @export var SPEED = 300.0
 var trajet : PathFollow2D
 var direction
+var i : int
 
 @onready var raycast = $"../Tete/RayCast2D"
 @export var distance_max_vue = 200000
@@ -10,6 +11,7 @@ const TORQUE_FORCE = 700000.0
 const MAX_SPEED = 400.0
 const FORCE = 12000.0
 var mutations = Array()
+var raycasts = Array()
 var player
 func _ready():
 	player = $"../../player"
@@ -18,19 +20,26 @@ func _ready():
 	
 func _on_muting_cat_muted_up(mutation : Node2D):
 	mutations.append(mutation)
+	raycasts.append(RayCast2D.new())
+	raycasts[-1].set_collision_mask(2)
+	$"../Tete/Laser".add_child(raycasts[-1])
 func _on_muting_cat_muted_down(mutation : Node2D):
-	mutations.erase(mutation)
+	i=mutations.find(mutation)
+	mutations.pop_at(i)
+	raycasts[i].queue_free
+	raycasts.pop_at(i)
 func ray_cast():
-	for mutation in mutations:
-		raycast.target_position = raycast.to_local(mutation.global_position)
-		raycast.force_raycast_update()
-		if (mutation.global_position - self.position).dot(mutation.global_position - self.position) > distance_max_vue:
+	for i in range(len(mutations)):
+		raycasts[i].target_position = raycasts[i].to_local(mutations[i].global_position)
+		raycasts[i].force_raycast_update()
+		if (mutations[i].global_position - self.position).dot(mutations[i].global_position - self.position) > distance_max_vue:
 			return false
-		if (mutation.global_position - self.position).normalized().dot(direction.normalized()) < 0.75:
+		if (mutations[i].global_position - self.position).normalized().dot(direction.normalized()) < 0.75:
 			return false
-		elif raycast.is_colliding():
-			if raycast.get_collider() == mutation:
-				mutation.seen()
+		elif raycasts[i].is_colliding():
+			if raycasts[i].get_collider() == mutations[i]:
+				print(mutations[i].name)
+				mutations[i].seen()
 				return true
 	
 	return false

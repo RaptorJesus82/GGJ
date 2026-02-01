@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://domswl0cxmo80"]
 
 [ext_resource type="Script" uid="uid://hea53bxgs541" path="res://Scripts/script_pnj.gd" id="1_eadai"]
-[ext_resource type="Script" path="res://Scripts/parent_pnj.gd" id="1_g30v5"]
+[ext_resource type="Script" uid="uid://teaddxs75iq8" path="res://Scripts/parent_pnj.gd" id="1_g30v5"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_5qfbx"]
 [ext_resource type="PackedScene" uid="uid://dfhsb1a47sk5w" path="res://Scenes/enemy_light.tscn" id="3_jy0ci"]
 
@@ -58,6 +58,9 @@ shape = SubResource("CapsuleShape2D_48ufq")
 
 [node name="RayCast2D" type="RayCast2D" parent="Tete" unique_id=477011479]
 collision_mask = 3
+
+[node name="Laser" type="Node2D" parent="Tete" unique_id=24674382]
+position = Vector2(57, -1)
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="." unique_id=1021524060]
 position = Vector2(93, 91)
