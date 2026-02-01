@@ -15,7 +15,7 @@ var player
 var angle_dir
 
 func _ready():
-	player = $"../../../../player"
+	player = $"../../player"
 	player.muted_up.connect(_on_muting_cat_muted_up)
 	player.muted_down.connect(_on_muting_cat_muted_down)
 	
