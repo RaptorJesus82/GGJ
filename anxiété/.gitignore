@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+anxiété.sh
+anxiété.x86_64
