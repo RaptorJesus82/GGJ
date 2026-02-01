@@ -7,20 +7,20 @@ extends Node2D
 @export var alphaMinRadius:float = 0.
 @export var tangToBaseAngle:float = 0.8
 @export var tangToBaseRadius:float = 0.006
-
+var decalage = 10
 
 func _ready() -> void:
 	var image = light.texture.get_image()
-	var newImage = Image.create_empty(512, 512, false, Image.FORMAT_RGBA8)
+	var newImage = Image.create_empty(512 + 2*decalage, 512, false, Image.FORMAT_RGBA8)
 	buildImage(newImage)
 	var newTexture = ImageTexture.create_from_image(newImage)
 	light.texture = newTexture
 	
 func buildImage(image:Image) -> void:
 	var size = image.get_size()
-	var origin = Vector2(size.x / 2, size.y / 2)
+	var origin = Vector2((size.x - 2*decalage) / 2, size.y / 2)
 	var realHalfAngle = angle * PI / 360
-	for x in range(size.x):
+	for x in range(decalage, size.x - decalage):
 		for y in range(size.y):
 			var pixelVector = Vector2(x, y)
 			var myVector:Vector2 = pixelVector - origin
