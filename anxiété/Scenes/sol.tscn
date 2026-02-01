@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://btqerod6pj1t6"]
+
+[ext_resource type="Texture2D" uid="uid://bn0ih0emimbhb" path="res://TextureAssets/Sol/Bricks.png" id="1_lq57k"]
+[ext_resource type="Texture2D" uid="uid://bccfi7iqxy5qf" path="res://TextureAssets/Sol/NormalBricks.png" id="2_xnvnt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qey52"]
+diffuse_texture = ExtResource("1_lq57k")
+normal_texture = ExtResource("2_xnvnt")
+specular_shininess = 0.3
+
+[node name="Sol" type="Node2D" unique_id=1174416188]
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=472424403]
+texture = SubResource("CanvasTexture_qey52")

@@ -36,10 +36,14 @@ func _on_muting_cat_muted_down(mutation : Node2D):
 func ray_cast():
 	for i in range(len(mutations)):
 		raycasts[i].target_position = raycasts[i].to_local(mutations[i].global_position)
+		direction = Vector2(cos(self.global_rotation),sin(self.global_rotation))
 		raycasts[i].force_raycast_update()
-		if not((mutations[i].global_position - self.position).dot(mutations[i].global_position - self.position) > distance_max_vue) and not((mutations[i].global_position - self.position).normalized().dot(direction.normalized()) < 0.75) and (raycasts[i].is_colliding()) and (raycasts[i].get_collider() == mutations[i]):
-			print(mutations[i].name)
-			mutations[i].seen()
+		if not((mutations[i].global_position - self.position).dot(mutations[i].global_position - self.position) > distance_max_vue):
+			if not((mutations[i].global_position - self.position).normalized().dot(direction.normalized()) < 0.75):
+				if (raycasts[i].is_colliding()):
+					if (raycasts[i].get_collider() == mutations[i]):
+						print(raycasts[i].get_collider())
+						mutations[i].seen()
 
 func _process(delta):
 	ray_cast()

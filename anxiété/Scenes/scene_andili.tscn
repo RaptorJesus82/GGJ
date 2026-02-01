@@ -1,16 +1,13 @@
 [gd_scene format=3 uid="uid://bfpjmhe6ooui5"]
 
 [ext_resource type="PackedScene" uid="uid://biygd4a741gru" path="res://Scenes/meuble.tscn" id="1_gyss8"]
-[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="1_r5nrv"]
+[ext_resource type="PackedScene" uid="uid://c0wbo8v6pbw5x" path="res://Scenes/sol_entier.tscn" id="1_kdpyh"]
 [ext_resource type="PackedScene" uid="uid://dfhsb1a47sk5w" path="res://Scenes/enemy_light.tscn" id="2_kdpyh"]
 [ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="3_123vp"]
 
 [node name="Scene Andili" type="Node2D" unique_id=678962933]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=197058332]
-position = Vector2(515, 296)
-scale = Vector2(8.03125, 4.640625)
-texture = ExtResource("1_r5nrv")
+[node name="SolEntier" parent="." unique_id=1699950376 instance=ExtResource("1_kdpyh")]
 
 [node name="EnemyLight" parent="." unique_id=813941423 instance=ExtResource("2_kdpyh")]
 position = Vector2(543.00006, 306.00003)
