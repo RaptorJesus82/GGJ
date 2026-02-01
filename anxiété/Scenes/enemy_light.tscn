@@ -15,4 +15,4 @@ shadow_enabled = true
 shadow_filter = 1
 texture = ExtResource("2_71f0o")
 texture_scale = 5.0
-height = 100.0
+height = 180.0

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c0wbo8v6pbw5x"]
+
+[ext_resource type="PackedScene" uid="uid://btqerod6pj1t6" path="res://Scenes/sol.tscn" id="1_ur7gp"]
+
+[node name="SolEntier" type="Node2D" unique_id=1699950376]
+
+[node name="Sol" parent="." unique_id=1174416188 instance=ExtResource("1_ur7gp")]
+position = Vector2(256, 256)
+
+[node name="Sol2" parent="." unique_id=132490718 instance=ExtResource("1_ur7gp")]
+position = Vector2(768, 256)
+
+[node name="Sol3" parent="." unique_id=338006621 instance=ExtResource("1_ur7gp")]
+position = Vector2(256, 762)
+
+[node name="Sol4" parent="." unique_id=842767105 instance=ExtResource("1_ur7gp")]
+position = Vector2(768, 762)
+
+[node name="Sol5" parent="." unique_id=848481158 instance=ExtResource("1_ur7gp")]
+position = Vector2(1280, 256)
+
+[node name="Sol6" parent="." unique_id=1025180372 instance=ExtResource("1_ur7gp")]
+position = Vector2(1280, 762)
