@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxxm8jfj6tu4k" path="res://animation assets/frames corps/IMG_9542.png" id="5_wod8o"]
 [ext_resource type="Texture2D" uid="uid://c3hjpcaxhola0" path="res://animation assets/frames corps/IMG_9543.png" id="6_y62ii"]
 [ext_resource type="Texture2D" uid="uid://b4u1cbtu56e31" path="res://animation assets/frames tete/IMG_9545.png" id="9_wod8o"]
+[ext_resource type="Script" uid="uid://0d2xmh7md44o" path="res://Scripts/camera_2d.gd" id="10_4ukxe"]
 [ext_resource type="Texture2D" uid="uid://dqo2r7h83wesv" path="res://animation assets/frames tete/IMG_9546.png" id="10_y62ii"]
 [ext_resource type="Script" uid="uid://deoqds23n20af" path="res://Scenes/sprite_2d.gd" id="11_y62ii"]
 [ext_resource type="Texture2D" uid="uid://cipsvm3bvrskb" path="res://animation assets/queue/IMG_9547.png" id="12_p00ic"]
@@ -170,6 +171,7 @@ position = Vector2(26, 99)
 
 [node name="Camera2D" type="Camera2D" parent="Corps/Node2D" unique_id=1253060198]
 zoom = Vector2(0.3, 0.3)
+script = ExtResource("10_4ukxe")
 
 [node name="Area2D" type="Area2D" parent="Corps" unique_id=839225061]
 position = Vector2(27, 98)

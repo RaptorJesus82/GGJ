@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://clpmwlquck0jw"]
 
-[ext_resource type="Script" path="res://Scripts/game.gd" id="1_qyvfo"]
-[ext_resource type="PackedScene" uid="uid://c0wbo8v6pbw5x" path="res://Scenes/sol_entier.tscn" id="2_4e3kh"]
+[ext_resource type="Script" path="res://Scenes/Tests/game.gd" id="1_6rxsm"]
 [ext_resource type="PackedScene" uid="uid://dpbwdg30gtjx4" path="res://Scenes/Tests/python.tscn" id="2_fjbmv"]
 [ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="4_meeow"]
 [ext_resource type="PackedScene" uid="uid://c5856ppd0alg3" path="res://Scenes/perso_principal_marc.tscn" id="5_0p48j"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="5_6rxsm"]
 [ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="5_d02u7"]
 [ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="6_6rxsm"]
-[ext_resource type="PackedScene" path="res://Scenes/Tests/game_over.tscn" id="7_6rxsm"]
+[ext_resource type="PackedScene" uid="uid://b6mc63iqxm53k" path="res://Scenes/Tests/game_over.tscn" id="7_6rxsm"]
 
 [sub_resource type="Curve2D" id="Curve2D_0p48j"]
 _data = {
@@ -16,19 +15,15 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="Curve2D" id="Curve2D_d02u7"]
+
 [node name="Florian" type="Node2D" unique_id=1382921374]
-script = ExtResource("1_qyvfo")
+script = ExtResource("1_6rxsm")
 
-[node name="SolEntier" parent="." unique_id=1699950376 instance=ExtResource("2_4e3kh")]
-position = Vector2(-3200, -1957)
-scale = Vector2(5.482, 4.025)
-
-[node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("path") instance=ExtResource("4_meeow")]
-position = Vector2(-1946, -299)
-path = NodePath("../Path2D/PathFollow2D")
-speedPath = 150.0
-distance_max_vue = 2000000000000000
-FORCE = 120000.0
+[node name="sol" type="Sprite2D" parent="." unique_id=1751498416]
+position = Vector2(111, 230)
+scale = Vector2(39.671875, 29.125)
+texture = ExtResource("5_6rxsm")
 
 [node name="python4" parent="." unique_id=999238702 instance=ExtResource("2_fjbmv")]
 position = Vector2(-15, -1468)
@@ -87,8 +82,19 @@ texture = ExtResource("5_6rxsm")
 
 [node name="player" parent="." unique_id=861734734 instance=ExtResource("5_0p48j")]
 position = Vector2(-1655, 962)
-stress_on_sight = 0.01
+stress_on_sight = 0.02
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1530714510]
+[node name="Chat ennemi" parent="." unique_id=1469205104 node_paths=PackedStringArray("path") instance=ExtResource("4_meeow")]
+position = Vector2(2000, -1128)
+rotation = 1.5707964
+path = NodePath("../Path2D2/PathFollow2D")
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=677408435]
+position = Vector2(2250, -1200)
+curve = SubResource("Curve2D_d02u7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=103866348]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=886876396]
 
 [node name="game over" parent="CanvasLayer" unique_id=884878878 instance=ExtResource("7_6rxsm")]
