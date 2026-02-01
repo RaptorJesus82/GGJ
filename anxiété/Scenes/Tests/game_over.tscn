@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6mc63iqxm53k"]
 
-[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_tacqr"]
+[ext_resource type="Script" uid="uid://c1xum2yj6q5my" path="res://Scripts/game_over.gd" id="1_tacqr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xapjj"]
 font_size = 60
@@ -10,14 +10,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tacqr")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=905085077]
 layout_mode = 0
-offset_right = 1147.0
-offset_bottom = 642.0
 color = Color(0, 0, 0, 0.11372549)
 
 [node name="Label" type="Label" parent="." unique_id=1078053913]

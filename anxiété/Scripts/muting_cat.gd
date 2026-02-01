@@ -5,7 +5,8 @@ var remainingMutation : Array[Node2D]
 var currentMutation : Array[Node2D]
 var stress : float =1.5
 var mut
-@export var stress_on_sight : float =0.001
+var dead : bool = false
+@export var stress_on_sight : float =0.000001
 @export var calming = 0.001
 var seen : bool = false
 signal muted_up
@@ -33,11 +34,13 @@ func _process(delta: float) -> void:
 		stress -= calming
 	else :
 		seen = false
+	stress += stress_on_sight
 	if int(stress) > len(mutations):
 		$Corps/mutationEpauleDroite.set_collision_layer_value(1, true)
 		$Corps/mutationEpauleGauche.set_collision_layer_value(1, true)
 		$Tete/mutationTete.set_collision_layer_value(1, true)
 		$Queue/mutationQueue.set_collision_layer_value(1, true)
+		dead=true
 
 
 func stress_increase():
