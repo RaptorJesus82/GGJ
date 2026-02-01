@@ -51,8 +51,8 @@ texture = ExtResource("6_6rxsm")
 texture_scale = 10.81
 
 [node name="Path2D" type="Path2D" parent="." unique_id=2098164488]
-position = Vector2(340, -136.9079)
-scale = Vector2(1, 0.9259868)
+position = Vector2(45.936493, 8.013168)
+scale = Vector2(0.98698145, 0.9358552)
 curve = SubResource("Curve2D_0p48j")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=42616205]
