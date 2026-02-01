@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b6mc63iqxm53k"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_tacqr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xapjj"]
+font_size = 60
+
+[node name="Control" type="Control" unique_id=884878878]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tacqr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=905085077]
+layout_mode = 0
+offset_right = 1147.0
+offset_bottom = 642.0
+color = Color(0, 0, 0, 0.11372549)
+
+[node name="Label" type="Label" parent="." unique_id=1078053913]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 187.0
+offset_right = 746.0
+offset_bottom = 307.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_xapjj")
+
+[node name="Button" type="Button" parent="." unique_id=1489020902]
+layout_mode = 0
+offset_left = 422.00003
+offset_top = 334.0
+offset_right = 653.0
+offset_bottom = 382.0
+scale = Vector2(1.44, 1.28)
+text = "Recommencer"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

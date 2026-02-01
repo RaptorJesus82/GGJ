@@ -15,6 +15,11 @@ point_count = 8
 
 [node name="Florian" type="Node2D" unique_id=1382921374]
 
+[node name="sol" type="Sprite2D" parent="." unique_id=1751498416]
+position = Vector2(111, 230)
+scale = Vector2(39.671875, 29.125)
+texture = ExtResource("5_6rxsm")
+
 [node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("path") instance=ExtResource("4_meeow")]
 position = Vector2(-1946, -299)
 path = NodePath("../Path2D/PathFollow2D")
