@@ -17,7 +17,7 @@ point_count = 8
 [node name="Camera2D" type="Camera2D" parent="." unique_id=882143817]
 
 [node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("path") instance=ExtResource("4_meeow")]
-position = Vector2(-345, 119)
+position = Vector2(-326, -201)
 path = NodePath("../Path2D/PathFollow2D")
 
 [node name="python4" parent="." unique_id=999238702 instance=ExtResource("2_fjbmv")]
@@ -27,6 +27,10 @@ scale = Vector2(5, 0.2)
 [node name="python5" parent="." unique_id=1373510585 instance=ExtResource("2_fjbmv")]
 position = Vector2(-25, 346)
 scale = Vector2(5, 0.2)
+
+[node name="python7" parent="." unique_id=1238169934 instance=ExtResource("2_fjbmv")]
+position = Vector2(-350, 73)
+scale = Vector2(2, 0.2)
 
 [node name="python2" parent="." unique_id=1402396448 instance=ExtResource("2_fjbmv")]
 position = Vector2(585.00006, 57)
@@ -45,14 +49,14 @@ texture = ExtResource("5_d02u7")
 centered = false
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1615494471]
-position = Vector2(-561.47546, 731.8181)
+position = Vector2(-508.19672, -222.72723)
 scale = Vector2(1.7815996, 1.1990423)
 texture = ExtResource("6_6rxsm")
 texture_scale = 10.81
 
 [node name="Path2D" type="Path2D" parent="." unique_id=2098164488]
-position = Vector2(45.936493, 8.013168)
-scale = Vector2(0.98698145, 0.9358552)
+position = Vector2(45.936493, -146.31578)
+scale = Vector2(0.98698145, 0.41447365)
 curve = SubResource("Curve2D_0p48j")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=42616205]
@@ -60,4 +64,5 @@ position = Vector2(-542, 312)
 rotation = -3.0778599
 
 [node name="player" parent="." unique_id=861734734 instance=ExtResource("5_0p48j")]
-stress_on_sight = 0.02
+position = Vector2(-415, 97)
+stress_on_sight = 0.2

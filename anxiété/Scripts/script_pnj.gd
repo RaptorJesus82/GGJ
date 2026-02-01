@@ -5,7 +5,6 @@ var trajet : PathFollow2D
 var direction
 var i : int
 
-@onready var raycast = $"../Tete/RayCast2D"
 @export var distance_max_vue = 200000
 const TORQUE_FORCE = 700000.0
 const MAX_SPEED = 400.0
@@ -26,30 +25,19 @@ func _on_muting_cat_muted_up(mutation : Node2D):
 func _on_muting_cat_muted_down(mutation : Node2D):
 	i=mutations.find(mutation)
 	mutations.pop_at(i)
-	raycasts[i].queue_free
+	raycasts[i].queue_free()
 	raycasts.pop_at(i)
 func ray_cast():
 	for i in range(len(mutations)):
 		raycasts[i].target_position = raycasts[i].to_local(mutations[i].global_position)
 		raycasts[i].force_raycast_update()
-		if (mutations[i].global_position - self.position).dot(mutations[i].global_position - self.position) > distance_max_vue:
-			return false
-		if (mutations[i].global_position - self.position).normalized().dot(direction.normalized()) < 0.75:
-			return false
-		elif raycasts[i].is_colliding():
-			if raycasts[i].get_collider() == mutations[i]:
-				print(mutations[i].name)
-				mutations[i].seen()
-				return true
-	
-	return false
+		if not((mutations[i].global_position - self.position).dot(mutations[i].global_position - self.position) > distance_max_vue) and not((mutations[i].global_position - self.position).normalized().dot(direction.normalized()) < 0.75) and (raycasts[i].is_colliding()) and (raycasts[i].get_collider() == mutations[i]):
+			print(mutations[i].name)
+			mutations[i].seen()
 
 func _process(delta):
-	if ray_cast():
-		print("Player visible!")
-	else:
-		print("Player hidden!")
-		
+	ray_cast()
+	
 func _physics_process(delta: float) -> void:
 	trajet.progress += SPEED*delta
 	var target_pos = trajet.global_position
