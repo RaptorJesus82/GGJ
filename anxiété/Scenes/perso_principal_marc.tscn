@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bqyietb38t7hk" path="res://Scripts/perso_principal_marc.gd" id="1_27yu7"]
 [ext_resource type="Script" uid="uid://h683u7m3x66d" path="res://Scripts/muting_cat.gd" id="1_jjfqu"]
-[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_s07hf"]
 [ext_resource type="Texture2D" uid="uid://gg2eyxth5uw0" path="res://animation assets/frames corps/IMG_9540.png" id="3_d5pws"]
 [ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="3_s07hf"]
 [ext_resource type="Texture2D" uid="uid://qhoimiqd4g8l" path="res://animation assets/frames corps/IMG_9541.png" id="4_j04vs"]
@@ -11,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://c3hjpcaxhola0" path="res://animation assets/frames corps/IMG_9543.png" id="6_y62ii"]
 [ext_resource type="Texture2D" uid="uid://b4u1cbtu56e31" path="res://animation assets/frames tete/IMG_9545.png" id="9_wod8o"]
 [ext_resource type="Texture2D" uid="uid://dqo2r7h83wesv" path="res://animation assets/frames tete/IMG_9546.png" id="10_y62ii"]
-[ext_resource type="Script" path="res://Scenes/sprite_2d.gd" id="11_y62ii"]
+[ext_resource type="Script" uid="uid://deoqds23n20af" path="res://Scenes/sprite_2d.gd" id="11_y62ii"]
+[ext_resource type="Texture2D" uid="uid://cipsvm3bvrskb" path="res://animation assets/queue/IMG_9547.png" id="12_p00ic"]
+[ext_resource type="Texture2D" uid="uid://buvj7j3o0lyy5" path="res://animation assets/queue/IMG_9548.png" id="13_qqqc8"]
+[ext_resource type="Texture2D" uid="uid://b8hnq7gvl3rlm" path="res://animation assets/queue/IMG_9549.png" id="14_4ukxe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oruv1"]
 animations = [{
@@ -69,6 +71,26 @@ height = 80.1875
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8p25h"]
 radius = 28.071337
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f47r0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_p00ic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qqqc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4ukxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qqqc8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvl38"]
 radius = 16.75
@@ -145,7 +167,7 @@ position = Vector2(17, 69)
 mass = 0.5
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Tete" unique_id=525992371]
-position = Vector2(178.4, 53.595)
+position = Vector2(-162.00003, 103.00001)
 rotation = 1.5707964
 scale = Vector2(0.36, 0.36)
 sprite_frames = SubResource("SpriteFrames_p00ic")
@@ -220,10 +242,12 @@ disable_collision = false
 position = Vector2(-167, 219)
 mass = 0.1
 
-[node name="Sprite2D" type="Sprite2D" parent="Queue" unique_id=1540117725]
-position = Vector2(166, -104)
-scale = Vector2(1.28125, 0.2421875)
-texture = ExtResource("2_s07hf")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Queue" unique_id=2085909909]
+position = Vector2(360, -120)
+rotation = 1.5707964
+scale = Vector2(0.355, 0.355)
+sprite_frames = SubResource("SpriteFrames_f47r0")
+frame_progress = 0.4169587
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Queue" unique_id=805964557]
 position = Vector2(165.25, -104.375)
