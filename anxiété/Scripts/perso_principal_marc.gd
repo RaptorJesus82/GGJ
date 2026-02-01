@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const FORCE = 12000.0
+const FORCE = 30000.0
 const TORQUE_FORCE = 700000.0
 const MAX_SPEED = 400.0
 
@@ -21,3 +21,8 @@ func _physics_process(delta):
 		var forward = Vector2.RIGHT.rotated(rotation)
 		if linear_velocity.length() < MAX_SPEED:
 			apply_central_force(forward * FORCE)
+			
+	if Input.is_action_pressed("ui_down"):
+		var backward = Vector2.LEFT.rotated(rotation)
+		if linear_velocity.length() < MAX_SPEED:
+			apply_central_force(backward * FORCE * 0.4)
