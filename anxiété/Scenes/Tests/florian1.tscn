@@ -23,7 +23,9 @@ texture = ExtResource("5_6rxsm")
 [node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("path") instance=ExtResource("4_meeow")]
 position = Vector2(-1946, -299)
 path = NodePath("../Path2D/PathFollow2D")
-speedPath = 100.0
+speedPath = 150.0
+distance_max_vue = 2000000000000000
+FORCE = 120000.0
 
 [node name="python4" parent="." unique_id=999238702 instance=ExtResource("2_fjbmv")]
 position = Vector2(-15, -1468)
@@ -82,4 +84,5 @@ texture = ExtResource("5_6rxsm")
 
 [node name="player" parent="." unique_id=861734734 instance=ExtResource("5_0p48j")]
 position = Vector2(-1655, 962)
-stress_on_sight = 1.0
+stress_on_sight = 0.02
+calming = 0.0
