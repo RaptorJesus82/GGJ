@@ -1,5 +1,5 @@
 extends RigidBody2D
-class_name ennemy_with_sight
+#class_name ennemy_with_sight
 var SPEED
 var trajet : PathFollow2D
 var direction
