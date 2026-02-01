@@ -23,7 +23,7 @@ height = 164.5
 polygon = PackedVector2Array(-64, -52, -52, -64, 52, -64, 64, -52, 64, 52, 52, 64, -52, 64, -64, 51)
 
 [node name="Chat ennemi" type="Node2D" unique_id=861734734]
-position = Vector2(381.74274, 38.444336)
+position = Vector2(-198, -115)
 script = ExtResource("1_g30v5")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="." unique_id=755874879]
@@ -33,18 +33,18 @@ node_b = NodePath("../Corps")
 disable_collision = false
 
 [node name="Corps" type="RigidBody2D" parent="." unique_id=1161705992]
-position = Vector2(170, 15)
+position = Vector2(198, 114)
 mass = 6.131
 physics_material_override = SubResource("PhysicsMaterial_g30v5")
 script = ExtResource("2_g30v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Corps" unique_id=101103376]
-position = Vector2(28, 100)
+position = Vector2(-0.5, 0)
 scale = Vector2(1.7578125, 0.78125)
 texture = ExtResource("2_5qfbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corps" unique_id=1889808054]
-position = Vector2(28.5, 100.5)
+position = Vector2(0, 0.5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_wmkwl")
 
@@ -81,26 +81,24 @@ disable_collision = false
 length = 44.0
 
 [node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="." unique_id=305120544]
-position = Vector2(319, 136)
-rotation = 1.5707964
+position = Vector2(322, 134)
+rotation = 1.3194689
 node_a = NodePath("../Tete")
 node_b = NodePath("../Corps")
 bias = 0.9
 disable_collision = false
-length = 20.0
-stiffness = 64.0
-damping = 16.0
+length = 40.0
+stiffness = 4.0
 
 [node name="DampedSpringJoint2D4" type="DampedSpringJoint2D" parent="." unique_id=1958481082]
-position = Vector2(320, 91)
-rotation = 1.5707964
+position = Vector2(322, 92)
+rotation = 1.8221238
 node_a = NodePath("../Tete")
 node_b = NodePath("../Corps")
 bias = 0.9
 disable_collision = false
-length = 20.0
-stiffness = 64.0
-damping = 16.0
+length = 40.0
+stiffness = 4.0
 
 [node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=479959012]
 position = Vector2(83, 116)
