@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c0wbo8v6pbw5x" path="res://Scenes/sol_entier.tscn" id="1_kdpyh"]
 [ext_resource type="PackedScene" uid="uid://dfhsb1a47sk5w" path="res://Scenes/enemy_light.tscn" id="2_kdpyh"]
 [ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="3_123vp"]
+[ext_resource type="PackedScene" uid="uid://dyasjrqqup6x0" path="res://Scenes/mur.tscn" id="5_0j0br"]
 
 [node name="Scene Andili" type="Node2D" unique_id=678962933]
 
@@ -32,3 +33,6 @@ scale = Vector2(5, 5)
 
 [node name="Meuble2" parent="." unique_id=698442554 instance=ExtResource("1_gyss8")]
 position = Vector2(217, 196)
+
+[node name="Mur" parent="." unique_id=896371457 instance=ExtResource("5_0j0br")]
+position = Vector2(285, 122)

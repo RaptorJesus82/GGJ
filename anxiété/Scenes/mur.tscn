@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dyasjrqqup6x0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6jyg"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vwgi3"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Mur" type="Node2D" unique_id=896371457]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2082178888]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=439905846]
+shape = SubResource("RectangleShape2D_j6jyg")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Area2D" unique_id=2092295242]
+occluder = SubResource("OccluderPolygon2D_vwgi3")
