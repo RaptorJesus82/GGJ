@@ -60,3 +60,4 @@ position = Vector2(-542, 312)
 rotation = -3.0778599
 
 [node name="player" parent="." unique_id=861734734 instance=ExtResource("5_0p48j")]
+stress_on_sight = 0.02
