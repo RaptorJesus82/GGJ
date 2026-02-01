@@ -18,9 +18,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tacqr")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=905085077]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2119071286]
 layout_mode = 0
-color = Color(0, 0, 0, 0.11372549)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.5019608)
 
 [node name="Label" type="Label" parent="." unique_id=1078053913]
 layout_mode = 0
@@ -34,9 +36,9 @@ label_settings = SubResource("LabelSettings_xapjj")
 [node name="Button" type="Button" parent="." unique_id=1489020902]
 layout_mode = 0
 offset_left = 422.00003
-offset_top = 334.0
+offset_top = 293.0
 offset_right = 653.0
-offset_bottom = 382.0
+offset_bottom = 341.0
 scale = Vector2(1.44, 1.28)
 text = "Recommencer"
 
