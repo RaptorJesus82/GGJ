@@ -1,18 +1,36 @@
 [gd_scene format=3 uid="uid://bxaeqxpsnm1b6"]
 
-[ext_resource type="PackedScene" path="res://Scenes/perso_principal_marc.tscn" id="1_51ofc"]
-[ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="1_qofr2"]
-[ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="2_51ofc"]
+[ext_resource type="PackedScene" uid="uid://c5856ppd0alg3" path="res://Scenes/perso_principal_marc.tscn" id="1_51ofc"]
+[ext_resource type="Texture2D" uid="uid://bxt3x0b70fqny" path="res://bg assets/IMG_9553.png" id="2_anbt5"]
+[ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="3_qofr2"]
+
+[sub_resource type="Curve2D" id="Curve2D_qofr2"]
+bake_interval = 15.51
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 271, 1114, 0, 0, 0, 0, 1061, 1399, 0, 0, 0, 0, 1787.3691, 1136.6199, 0, 0, 0, 0, 2146, 755, 0, 0, 0, 0, 2127, -256, 0, 0, 0, 0, 1792, -862, 0, 0, 0, 0, 1025, -1115, 0, 0, 0, 0, 142, -688, 0, 0, 0, 0, -133, 117)
+}
+point_count = 9
 
 [node name="Ariane" type="Node2D" unique_id=599391189]
 
 [node name="player" parent="." unique_id=861734734 instance=ExtResource("1_51ofc")]
-position = Vector2(146.8617, 101.66403)
+position = Vector2(685.14105, 237.49756)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1603106688]
-texture = ExtResource("1_qofr2")
-centered = false
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1985093100]
 
-[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=980164928]
-position = Vector2(92, 29)
-texture = ExtResource("2_51ofc")
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1729834920]
+texture = ExtResource("2_anbt5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1763814278]
+polygon = PackedVector2Array(-1833, -104, -1852, -1207, -818, -1202, -813, -1965, -3088, -1947, -2959, 718, -427, 709, -437, 820, 418, 1624, 1718, 1642, 1957, 1334, 2058, 1412, 1663, 1996, -2996, 1996, -3171, -2048, 2559, -2071, 2582, -1634, 2417, -1790, 1921, -1317, 1999, -1211, 1939, -1165, 1650, -1409, 528, -1395, -427, -559, -427, -99, -970, -81, -1025, -835, -1438, -844, -1406, -113)
+
+[node name="Chat ennemi" parent="." unique_id=1706020630 node_paths=PackedStringArray("path") instance=ExtResource("3_qofr2")]
+position = Vector2(106, 208)
+path = NodePath("../Path2D/PathFollow2D")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2001918174]
+curve = SubResource("Curve2D_qofr2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1495791885]
+position = Vector2(271, 1114)
+rotation = 0.34622777

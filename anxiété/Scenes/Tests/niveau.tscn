@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dl408btbvjkxr"]
+
+[ext_resource type="Texture2D" uid="uid://sksc2pf8rbck" path="res://bg assets/IMG_9557.png" id="1_e8ud8"]
+[ext_resource type="Texture2D" uid="uid://bnncqfwk7cxor" path="res://bg assets/IMG_9555.png" id="2_chhh3"]
+
+[node name="Node2D" type="Node2D" unique_id=1805131687]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=868880031]
+position = Vector2(3034, 2019)
+texture = ExtResource("1_e8ud8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1892443787]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=890360003]
+position = Vector2(3016, 1990)
+texture = ExtResource("2_chhh3")
