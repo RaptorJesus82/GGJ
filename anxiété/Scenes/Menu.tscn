@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ruvlscrgvg8u"]
 
-[ext_resource type="Script" uid="uid://ymhfj5wj5875" path="res://menu.gd" id="1_5yleq"]
-[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="1_uubjt"]
+[ext_resource type="Script" uid="uid://ymhfj5wj5875" path="res://Scripts/menu.gd" id="1_6pedr"]
+[ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_syfuq"]
 
 [node name="Menu" type="Control" unique_id=554672939]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5yleq")
+script = ExtResource("1_6pedr")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1866899800]
 layout_mode = 1
@@ -19,7 +19,7 @@ anchor_right = 0.3
 anchor_bottom = 0.36200002
 offset_right = 803.4
 offset_bottom = 409.42398
-texture = ExtResource("1_uubjt")
+texture = ExtResource("2_syfuq")
 
 [node name="Button" type="Button" parent="." unique_id=741072849]
 layout_mode = 0
