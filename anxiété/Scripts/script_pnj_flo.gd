@@ -38,11 +38,14 @@ func ray_cast():
 		raycasts[i].target_position = raycasts[i].to_local(mutations[i].global_position)
 		direction = Vector2(cos(self.global_rotation),sin(self.global_rotation))
 		raycasts[i].force_raycast_update()
-		if not((mutations[i].global_position - self.position).dot(mutations[i].global_position - self.position) > distance_max_vue):
-			if not((mutations[i].global_position - self.position).normalized().dot(direction.normalized()) < 0.75):
+		if ((mutations[i].global_position - self.position).dot(mutations[i].global_position - self.position) < distance_max_vue):
+			if ((mutations[i].global_position - self.position).normalized().dot(direction.normalized()) > 0.75):
+				print("youpi1")
 				if (raycasts[i].is_colliding()):
+					print("youpi2")
+					print(mutations[i].name)
+					print(raycasts[i].get_collider()[0])
 					if (raycasts[i].get_collider() == mutations[i]):
-						print(raycasts[i].get_collider())
 						mutations[i].seen()
 
 func _process(delta):
