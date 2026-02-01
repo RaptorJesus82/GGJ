@@ -21,7 +21,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(stress)
 	if int(stress) > len(currentMutation) and len(remainingMutation)>0:
 		mut = remainingMutation.pop_at(remainingMutation.find(remainingMutation.pick_random()))
 		mut.show()
@@ -42,6 +41,7 @@ func _process(delta: float) -> void:
 		$Tete/mutationTete.set_collision_layer_value(1, true)
 		$Queue/mutationQueue.set_collision_layer_value(1, true)
 		dead=true
+		
 
 
 func stress_increase():
