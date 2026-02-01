@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://clpmwlquck0jw"]
 
+[ext_resource type="Script" uid="uid://cmax0ha77jgd" path="res://Scenes/Tests/game.gd" id="1_6rxsm"]
 [ext_resource type="PackedScene" uid="uid://dpbwdg30gtjx4" path="res://Scenes/Tests/python.tscn" id="2_fjbmv"]
 [ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="4_meeow"]
 [ext_resource type="PackedScene" uid="uid://c5856ppd0alg3" path="res://Scenes/perso_principal_marc.tscn" id="5_0p48j"]
@@ -16,6 +17,7 @@ point_count = 8
 [sub_resource type="Curve2D" id="Curve2D_d02u7"]
 
 [node name="Florian" type="Node2D" unique_id=1382921374]
+script = ExtResource("1_6rxsm")
 
 [node name="sol" type="Sprite2D" parent="." unique_id=1751498416]
 position = Vector2(111, 230)
