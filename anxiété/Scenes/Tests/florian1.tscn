@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://clpmwlquck0jw"]
 
-[ext_resource type="Script" uid="uid://cmax0ha77jgd" path="res://Scenes/Tests/game.gd" id="1_6rxsm"]
+[ext_resource type="Script" path="res://Scenes/Tests/game.gd" id="1_6rxsm"]
 [ext_resource type="PackedScene" uid="uid://dpbwdg30gtjx4" path="res://Scenes/Tests/python.tscn" id="2_fjbmv"]
 [ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="4_meeow"]
 [ext_resource type="PackedScene" uid="uid://c5856ppd0alg3" path="res://Scenes/perso_principal_marc.tscn" id="5_0p48j"]
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="5_6rxsm"]
 [ext_resource type="Texture2D" uid="uid://dvovho2ag2gyd" path="res://Python-logo.png" id="5_d02u7"]
 [ext_resource type="Texture2D" uid="uid://dfvy3c6opyox4" path="res://TextureAssets/2d_lights_and_shadows_neutral_point_light.webp" id="6_6rxsm"]
+[ext_resource type="PackedScene" uid="uid://b6mc63iqxm53k" path="res://Scenes/Tests/game_over.tscn" id="7_6rxsm"]
 
 [sub_resource type="Curve2D" id="Curve2D_0p48j"]
 _data = {
@@ -93,3 +94,7 @@ position = Vector2(2250, -1200)
 curve = SubResource("Curve2D_d02u7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=103866348]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=886876396]
+
+[node name="game over" parent="CanvasLayer" unique_id=884878878 instance=ExtResource("7_6rxsm")]
