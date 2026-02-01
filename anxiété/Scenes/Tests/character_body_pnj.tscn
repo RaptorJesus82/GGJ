@@ -15,12 +15,12 @@ height = 225.0
 radius = 40.09375
 height = 80.1875
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g30v5"]
+polygon = PackedVector2Array(-43, -37, 35, -37, 36, 34, -42, 34)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvl38"]
 radius = 16.75
 height = 164.5
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jy0ci"]
-polygon = PackedVector2Array(-64, -52, -52, -64, 52, -64, 64, -52, 64, 52, 52, 64, -52, 64, -64, 51)
 
 [node name="Chat ennemi" type="Node2D" unique_id=861734734]
 position = Vector2(-198, -115)
@@ -52,6 +52,9 @@ shape = SubResource("CapsuleShape2D_wmkwl")
 position = Vector2(357.25726, 112.555664)
 mass = 0.5
 
+[node name="EnemyLight" parent="Tete" unique_id=813941423 instance=ExtResource("3_jy0ci")]
+position = Vector2(42.742737, 0.44433594)
+
 [node name="Sprite2D" type="Sprite2D" parent="Tete" unique_id=1394237671]
 scale = Vector2(0.6484375, 0.5859375)
 texture = ExtResource("2_5qfbx")
@@ -61,6 +64,10 @@ shape = SubResource("CapsuleShape2D_48ufq")
 
 [node name="Laser" type="Node2D" parent="Tete" unique_id=24674382]
 position = Vector2(57, -1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Tete" unique_id=1557407064]
+position = Vector2(3.7427368, 1.4443359)
+occluder = SubResource("OccluderPolygon2D_g30v5")
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="." unique_id=1021524060]
 position = Vector2(93, 91)
@@ -119,11 +126,3 @@ texture = ExtResource("2_5qfbx")
 position = Vector2(165.25, -104.375)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_uvl38")
-
-[node name="EnemyLight" parent="." unique_id=813941423 instance=ExtResource("3_jy0ci")]
-position = Vector2(-381.74274, -38.444336)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1557407064]
-position = Vector2(-381.74274, -38.444336)
-occluder = SubResource("OccluderPolygon2D_jy0ci")
-occluder_light_mask = 2
