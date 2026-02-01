@@ -5,6 +5,7 @@ var remainingMutation : Array[Node2D]
 var currentMutation : Array[Node2D]
 var stress : float =1.5
 var mut
+var dead : bool = false
 @export var stress_on_sight : float =0.001
 @export var calming = 0.001
 @export var stress_on_collide : float = 0.5
@@ -45,6 +46,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(stress)
 	if int(stress) > len(currentMutation) and len(remainingMutation)>0:
 		mut = remainingMutation.pop_at(remainingMutation.find(remainingMutation.pick_random()))
 		mut.show()
@@ -64,6 +66,8 @@ func _process(delta: float) -> void:
 		$Corps/mutationEpauleGauche.set_collision_layer_value(1, true)
 		$Tete/mutationTete.set_collision_layer_value(1, true)
 		$Queue/mutationQueue.set_collision_layer_value(1, true)
+		dead=true
+
 	if dialogueTimer.is_stopped() and randf() < 0.5*delta:
 		updateLabel()
 
@@ -95,8 +99,6 @@ func stress_increase():
 func _on_corps_body_entered(body: Node) -> void:
 	if body.is_in_group("Enemies"):
 		stress += stress_on_collide
-		print("enemy")
-	print("jsp")
 
 
 func _on_dialogue_interval_timeout() -> void:
