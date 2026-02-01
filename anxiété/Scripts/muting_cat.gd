@@ -7,6 +7,7 @@ var stress : float =1.5
 var mut
 @export var stress_on_sight : float =0.001
 @export var calming = 0.001
+@export var stress_on_collide : float = 0.5
 var seen : bool = false
 signal muted_up
 signal muted_down
@@ -44,3 +45,10 @@ func stress_increase():
 	stress += stress_on_sight
 	seen = true
 	
+
+
+func _on_corps_body_entered(body: Node) -> void:
+	if body.is_in_group("Enemies"):
+		stress += stress_on_collide
+		print("enemy")
+	print("jsp")

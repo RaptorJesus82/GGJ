@@ -31,7 +31,7 @@ node_a = NodePath("../Tete")
 node_b = NodePath("../Corps")
 disable_collision = false
 
-[node name="Corps" type="RigidBody2D" parent="." unique_id=1161705992]
+[node name="Corps" type="RigidBody2D" parent="." unique_id=1161705992 groups=["Enemies"]]
 mass = 6.131
 physics_material_override = SubResource("PhysicsMaterial_g30v5")
 script = ExtResource("2_g30v5")
@@ -41,12 +41,12 @@ position = Vector2(-0.5, 0)
 scale = Vector2(1.7578125, 0.78125)
 texture = ExtResource("2_5qfbx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Corps" unique_id=1889808054]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corps" unique_id=1889808054 groups=["Enemies"]]
 position = Vector2(0, 0.5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_wmkwl")
 
-[node name="Tete" type="RigidBody2D" parent="." unique_id=827331561]
+[node name="Tete" type="RigidBody2D" parent="." unique_id=827331561 groups=["Enemies"]]
 position = Vector2(159.25726, -1.4443359)
 mass = 0.5
 
@@ -57,7 +57,7 @@ position = Vector2(42.742737, 0.44433594)
 scale = Vector2(0.6484375, 0.5859375)
 texture = ExtResource("2_5qfbx")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tete" unique_id=163629285]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tete" unique_id=163629285 groups=["Enemies"]]
 shape = SubResource("CapsuleShape2D_48ufq")
 
 [node name="Laser" type="Node2D" parent="Tete" unique_id=24674382]
@@ -111,7 +111,7 @@ node_a = NodePath("../Corps")
 node_b = NodePath("../Queue")
 disable_collision = false
 
-[node name="Queue" type="RigidBody2D" parent="." unique_id=1241234642]
+[node name="Queue" type="RigidBody2D" parent="." unique_id=1241234642 groups=["Enemies"]]
 position = Vector2(-365, 105)
 mass = 0.1
 
@@ -120,7 +120,7 @@ position = Vector2(166, -104)
 scale = Vector2(1.28125, 0.2421875)
 texture = ExtResource("2_5qfbx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Queue" unique_id=805964557]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Queue" unique_id=805964557 groups=["Enemies"]]
 position = Vector2(165.25, -104.375)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_uvl38")

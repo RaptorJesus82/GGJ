@@ -2,7 +2,7 @@ extends RigidBody2D
 
 const FORCE = 30000.0
 const TORQUE_FORCE = 700000.0
-const MAX_SPEED = 400.0
+const MAX_SPEED = 600.0
 
 func _ready():
 	linear_damp = 6.0
