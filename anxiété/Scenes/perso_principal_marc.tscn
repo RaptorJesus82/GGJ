@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b4u1cbtu56e31" path="res://animation assets/frames tete/IMG_9545.png" id="9_wod8o"]
 [ext_resource type="Script" uid="uid://0d2xmh7md44o" path="res://Scripts/camera_2d.gd" id="10_4ukxe"]
 [ext_resource type="Texture2D" uid="uid://dqo2r7h83wesv" path="res://animation assets/frames tete/IMG_9546.png" id="10_y62ii"]
-[ext_resource type="Script" path="res://Scenes/sprite_2d.gd" id="11_y62ii"]
+[ext_resource type="Script" uid="uid://deoqds23n20af" path="res://Scenes/sprite_2d.gd" id="11_y62ii"]
 [ext_resource type="Texture2D" uid="uid://cipsvm3bvrskb" path="res://animation assets/queue/IMG_9547.png" id="12_p00ic"]
 [ext_resource type="Script" uid="uid://cfigf2xyhty7i" path="res://Scenes/queue.gd" id="12_qqqc8"]
 [ext_resource type="Texture2D" uid="uid://buvj7j3o0lyy5" path="res://animation assets/queue/IMG_9548.png" id="13_qqqc8"]
@@ -181,6 +181,10 @@ scale = Vector2(11.6, 4.04)
 scale = Vector2(1, 0.970297)
 shape = SubResource("CapsuleShape2D_qqqc8")
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Corps" unique_id=35320022]
+remote_path = NodePath("../../DisplayTextLocation")
+update_rotation = false
+
 [node name="Tete" type="RigidBody2D" parent="." unique_id=827331561]
 position = Vector2(17, 69)
 mass = 0.5
@@ -303,6 +307,26 @@ position = Vector2(-19, 45)
 scale = Vector2(10.44, 1.8000004)
 shape = SubResource("CapsuleShape2D_4ukxe")
 
+[node name="DialogueInterval" type="Timer" parent="." unique_id=396430998]
+wait_time = 3.0
+one_shot = true
+
+[node name="DisplayTextLocation" type="Node2D" parent="." unique_id=1338841111]
+position = Vector2(170, 15)
+
+[node name="Label" type="Label" parent="DisplayTextLocation" unique_id=884734149]
+offset_left = -561.0
+offset_top = -280.0
+offset_right = 743.0
+offset_bottom = -133.0
+theme_override_font_sizes/font_size = 52
+text = "Partons de cette fête"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
 [connection signal="body_entered" from="Corps/Area2D" to="." method="_on_corps_body_entered"]
 [connection signal="body_entered" from="Tete/Area2D" to="." method="_on_corps_body_entered"]
 [connection signal="body_entered" from="Queue/Area2D" to="." method="_on_corps_body_entered"]
+[connection signal="timeout" from="DialogueInterval" to="." method="_on_dialogue_interval_timeout"]
