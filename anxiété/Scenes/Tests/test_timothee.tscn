@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://sejne8nok43s" path="res://icon.svg" id="2_7bnx2"]
 [ext_resource type="PackedScene" uid="uid://domswl0cxmo80" path="res://Scenes/Tests/character_body_pnj.tscn" id="4_7bnx2"]
 [ext_resource type="PackedScene" uid="uid://bcjdxy16asp58" path="res://Scenes/perso_principal_marc.tscn" id="4_20vjc"]
-[ext_resource type="Script" uid="uid://xelbb6hv0icd" path="res://Scripts/mutation.gd" id="4_trra4"]
 
 [sub_resource type="Curve2D" id="Curve2D_cvq5f"]
 _data = {
@@ -40,16 +39,11 @@ curve = SubResource("Curve2D_8tfmq")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=454055444]
 rotation = 3.1415927
 
-[node name="CharacterBodyPNJ" parent="." unique_id=279647907 node_paths=PackedStringArray("trajet") instance=ExtResource("4_7bnx2")]
+[node name="CharacterBodyPNJ" parent="." unique_id=279647907 instance=ExtResource("4_7bnx2")]
 position = Vector2(349, 69)
-slide_on_ceiling = false
-SPEED = 500.0
-trajet = NodePath("../Path2D/PathFollow2D")
 
-[node name="CharacterBodyPNJ2" parent="." unique_id=701943481 node_paths=PackedStringArray("trajet") instance=ExtResource("4_7bnx2")]
-position = Vector2(-233, -232)
-slide_on_ceiling = false
-trajet = NodePath("../Path2D2/PathFollow2D")
+[node name="CharacterBodyPNJ2" parent="." unique_id=701943481 instance=ExtResource("4_7bnx2")]
+position = Vector2(-366, -378)
 
 [node name="Mur" type="Node2D" parent="." unique_id=21635411]
 
@@ -79,7 +73,6 @@ scale = Vector2(4.7109375, 0.453125)
 texture = ExtResource("2_7bnx2")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1474495901]
-script = ExtResource("4_trra4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1730235674]
 position = Vector2(3, 17)
@@ -109,5 +102,5 @@ rotation = 3.0927234
 shape = SubResource("WorldBoundaryShape2D_7bnx2")
 
 [node name="Node2D2" parent="." unique_id=861734734 instance=ExtResource("4_20vjc")]
-position = Vector2(75, -528)
+position = Vector2(407, -483.00006)
 rotation = 1.4538592
